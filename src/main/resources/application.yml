@@ -35,12 +35,11 @@ spring:
     level:
       org.hibernate.SQL: debug
       org.hibernate.type: trace
-  data:
-    redis:
-      host: ${REDIS_HOST:localhost}
-      config_endpoint: ${REDIS_CONFIG_ENDPOINT:}
-      port: ${REDIS_PORT:6379}
-      password: ${REDIS_PASSWORD:}
+  redis:
+    host: ${REDIS_HOST:localhost}
+    config_endpoint: ${REDIS_CONFIG_ENDPOINT:}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
 
 ## ??? ??(spring doc)
 springdoc:
