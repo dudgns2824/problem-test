@@ -1,4 +1,4 @@
-package com.dudgns.problemtest.config.security;
+package com.dudgns.purchase.config.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +38,11 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:8081", "http://localhost:8080", "http://localhost:3000"));
+        configuration.setAllowedOrigins(List.of("http://localhost:8081", "http://localhost:8080"));
 
 //        configuration.setAllowedOrigins(List.of("*"));
         configuration.setAllowedMethods(List.of("HEAD", "GET", "POST", "PUT", "OPTIONS"));
-        configuration.setAllowedHeaders(List.of("Authorization", "Cache-control", "Content-Type", "X-PINGOTHER"));
+        configuration.setAllowedHeaders(List.of("authorization", "Cache-control", "Content-Type", "X-PINGOTHER"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

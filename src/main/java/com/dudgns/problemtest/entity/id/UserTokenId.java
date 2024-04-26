@@ -1,9 +1,9 @@
-package com.dudgns.problemtest.entity.id;
+package com.dudgns.purchase.entity.id;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 import lombok.*;
 
+import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -14,8 +14,8 @@ import java.util.UUID;
 @Getter
 @Setter
 public class UserTokenId implements Serializable {
-    @Column(name = "user_guid", nullable = false)
-    private UUID userGUID;
-    @Column(name = "refresh_token", nullable = false)
-    private String refreshToken;
+    @Column(name = "user_guid", nullable = false, updatable = false)
+    private UUID UserGUID;
+    @Column(name = "access_token", nullable = false, updatable = false)
+    private String AccessToken;
 }

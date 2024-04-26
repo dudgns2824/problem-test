@@ -1,4 +1,4 @@
-package com.dudgns.problemtest.exception;
+package com.dudgns.purchase.exception;
 
 public class AbnormalTokenException extends RuntimeException{
     public AbnormalTokenException() {

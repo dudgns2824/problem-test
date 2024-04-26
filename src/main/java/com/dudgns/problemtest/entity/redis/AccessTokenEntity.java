@@ -1,4 +1,4 @@
-package com.dudgns.problemtest.entity.redis;
+package com.dudgns.purchase.entity.redis;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 @Getter
 @Setter
-@RedisHash(value = "access_token")
+@RedisHash(value = "accessToken")
 public class AccessTokenEntity {
     @Id
     private UUID userGUID;

@@ -1,6 +1,6 @@
-package com.dudgns.problemtest.entity;
+package com.dudgns.purchase.entity.auth;
 
-import com.dudgns.problemtest.entity.id.UserTokenId;
+import com.dudgns.purchase.entity.id.UserTokenId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

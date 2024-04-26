@@ -1,7 +1,8 @@
-package com.dudgns.problemtest.config.security;
+package com.dudgns.purchase.config.security;
 
-import com.dudgns.problemtest.entity.UserEntity;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,18 +43,6 @@ public class JwtTokenProvider {
         secretKey = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String createToken(UserEntity user){
-        Claims claims = Jwts.claims().setSubject(user.getUserId());
-        claims.put("roles", user.getRole());
-        Date now = new Date();
-        return Jwts.builder()
-                .setClaims(claims)
-                .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + ACCESS_TOKEN_EXPIRE_TIME))
-                .signWith(secretKey, SignatureAlgorithm.HS256)
-                .compact();
-    }
-
     // Spring Security 인증 과정 중 권한 확인 필요
     public Authentication getAuthentication(String token){
         UserDetails userDetails = userDetailsService.loadUserByUsername(this.getAccount(token));
@@ -65,7 +54,7 @@ public class JwtTokenProvider {
         return Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token).getBody().getSubject();
     }
 
-    // Authorization Header 인증
+    // authorization Header 인증
     public String resolveToken(HttpServletRequest request){
         return request.getHeader(AUTHORIZATION_HEADER);
     }

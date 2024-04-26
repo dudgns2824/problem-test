@@ -1,6 +1,7 @@
-package com.dudgns.problemtest.config.security;
+package com.dudgns.purchase.config.security;
 
-import com.dudgns.problemtest.exception.AbnormalTokenException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.dudgns.purchase.exception.AbnormalTokenException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,10 +40,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
 
-        String URL = "/api/v1/problem-test";
+        String URL = "/api/v1/purchase";
 
         String path = request.getRequestURI();
-        String[] excludePath = {URL+"/mail/request"};
+        String[] excludePath = {URL+"/user/create", URL+"/user/login", URL+"/mail/verify", URL+"/mail/request"};
         return Arrays.stream(excludePath).anyMatch(path::startsWith);
     }
 

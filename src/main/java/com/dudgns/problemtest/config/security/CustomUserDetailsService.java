@@ -1,7 +1,6 @@
-package com.dudgns.problemtest.config.security;
+package com.dudgns.purchase.config.security;
 
-import com.dudgns.problemtest.entity.UserEntity;
-import com.dudgns.problemtest.repository.UserRepository;
+import com.dudgns.purchase.repository.auth.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         return Optional.ofNullable(userRepository.findUserByUserId(userId))
                 .filter(u -> u != null)
-                .map(u -> new SecurityUser((UserEntity) u))
+                .map(u -> new SecurityUser(u))
                 .get();
     }
 }
