@@ -26,6 +26,10 @@ public class CarEntity {
     @JoinColumn(name = "car_category_idx")
     private List<CarCategoryEntity> carCategoryEntityList = new ArrayList<>();
 
+    @OneToMany
+    @JoinColumn(name = "company_idx")
+    private List<CompanyEntity> companyEntityList = new ArrayList<>();
+
     @Column
     private String company;
 
