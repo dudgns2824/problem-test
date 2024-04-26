@@ -8,7 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class CarManagementService {
-    public ResponseCarManagementListDto lookUpCar() {
+
+    public ResponseCarManagementListDto lookUpCar(Integer categoryType,
+                                                  Integer companyCode,
+                                                  String startDt,
+                                                  String endDt) {
+
+
         return null;
     }
 }

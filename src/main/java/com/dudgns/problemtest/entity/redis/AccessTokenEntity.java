@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 @Getter
 @Setter
-@RedisHash(value = "accessToken")
+@RedisHash(value = "access_token")
 public class AccessTokenEntity {
     @Id
     private UUID userGUID;

@@ -1,6 +1,7 @@
 package com.dudgns.problemtest.repository.redis;
 
-import com.dudgns.auth.entity.redis.AccessTokenEntity;
+
+import com.dudgns.problemtest.entity.redis.AccessTokenEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

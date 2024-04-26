@@ -1,6 +1,6 @@
 package com.dudgns.problemtest.config.security;
 
-import com.dudgns.auth.entity.UserEntity;
+import com.dudgns.problemtest.entity.UserEntity;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;

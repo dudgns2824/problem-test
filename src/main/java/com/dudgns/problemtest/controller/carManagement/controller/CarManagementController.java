@@ -24,14 +24,17 @@ public class CarManagementController {
     @GetMapping
     @Operation(summary = "자동차 조회 API", description = "자동차 조회 API 입니다.")
     public ResponseEntity<BaseRepsonseDto<ResponseCarManagementListDto>> lookup(
-            @RequestParam(value = "categoryType") Integer categoryType
+            @RequestParam(value = "categoryType", required = false) Integer categoryType,
+            @RequestParam(value = "companyCode", required = false) Integer companyCode,
+            @RequestParam(value = "startDt", required = false) String startDt,
+            @RequestParam(value = "endDt", required = false) String endDt
     ) {
         try {
             return ResponseEntity.ok(
                     BaseRepsonseDto.<ResponseCarManagementListDto>builder()
                             .statusCode(200)
                             .status("success")
-                            .data(carManagementService.lookUpCar())
+                            .data(carManagementService.lookUpCar(categoryType, companyCode, startDt, endDt))
                             .build()
             );
         } catch (Exception e) {

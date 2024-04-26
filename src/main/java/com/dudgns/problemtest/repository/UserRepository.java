@@ -1,6 +1,7 @@
 package com.dudgns.problemtest.repository;
 
-import com.dudgns.auth.entity.UserEntity;
+
+import com.dudgns.problemtest.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
