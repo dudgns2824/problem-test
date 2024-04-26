@@ -26,17 +26,13 @@ public class CarEntity {
     @JoinColumn(name = "car_category_idx")
     private List<CarCategoryEntity> carCategoryEntityList = new ArrayList<>();
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "company_idx")
-    private List<CompanyEntity> companyEntityList = new ArrayList<>();
-
-    @Column
-    private String company;
+    private CompanyEntity companyEntity;
 
     @Column
     private String modelName;
 
-    /*년도라서 localdate보다 String 으로 처리*/
     @Column
     private String createdYear;
 }

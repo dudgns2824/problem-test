@@ -13,6 +13,10 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
   application:
     name: auth
+  redis:
+    host: ${REDIS_HOST:localhost}
+    config_endpoint: ${REDIS_CONFIG_ENDPOINT:}
+    port: ${REDIS_PORT:6379}
   servlet:
     multipart:
       max-file-size: 512MB
@@ -35,6 +39,9 @@ spring:
     level:
       org.hibernate.SQL: debug
       org.hibernate.type: trace
+  data:
+    redis:
+      password: ${REDIS_PASSWORD:}
 
 ## ??? ??(spring doc)
 springdoc:
