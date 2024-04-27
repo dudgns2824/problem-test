@@ -38,7 +38,7 @@ public class CarManagementRepositorySupport {
                 .carManagementDtoList(
                         carManagementQueryFactory
                                 .selectFrom(qCar)
-                                .innerJoin(qCarCategoryMapping).on(qCarCategoryMapping.carIdx.eq(qCar.idx))
+                                .innerJoin(qCarCategoryMapping).on(qCarCategoryMapping.carCategoryMappingId.carIdx.eq(qCar.idx))
                                 .leftJoin(qCompanyEntity).on(qCompanyEntity.companyCode.eq(qCar.companyEntity.companyCode))
                                 .where(
                                         companyCodeBooleanExpression(companyCode)
@@ -49,7 +49,7 @@ public class CarManagementRepositorySupport {
                                         .modelName(e.getModelName())
                                         .company(e.getCompanyEntity().getCompanyName())
                                         .carCategory(
-                                                e.getCarCategoryEntityList().stream()
+                                                e.getCarCategoryMappingEntityList().stream()
                                                         .map(carCategory -> carCategory.getCategoryName())
                                                         .toList()
                                         )

@@ -19,5 +19,5 @@ public class ResponseCarManagementDto {
     @Schema(description = "제조사")
     private String company;
     @Schema(description = "생산 년도")
-    private String createdYear;
+    private Integer createdYear;
 }

@@ -20,11 +20,11 @@ public class CarEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_idx")
-    private List<CarCategoryMappingEntity> carCategoryEntityList = new ArrayList<>();
+    private List<CarCategoryMappingEntity> carCategoryMappingEntityList = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_idx")
     private CompanyEntity companyEntity;
 
@@ -32,5 +32,8 @@ public class CarEntity {
     private String modelName;
 
     @Column(name = "created_year")
-    private String createdYear;
+    private Integer createdYear;
+
+    @Column(name = "rental_yn")
+    private Boolean rentalYn;
 }
