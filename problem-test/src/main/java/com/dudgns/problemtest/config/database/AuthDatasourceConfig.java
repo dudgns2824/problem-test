@@ -37,13 +37,14 @@ public class AuthDatasourceConfig {
 
         //Entity 패키지 경로
         em.setPackagesToScan(new String[] { "com.dudgns.problemtest.entity.auth" });
+        em.setPersistenceUnitName("authEntityManager");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
 
         //Hibernate 설정
         HashMap<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl.auto",env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.hbm2ddl.auto",env.getProperty("hibernate.ddl-auto.auto"));
         properties.put("hibernate.dialect",env.getProperty("hibernate.dialect"));
         em.setJpaPropertyMap(properties);
         return em;

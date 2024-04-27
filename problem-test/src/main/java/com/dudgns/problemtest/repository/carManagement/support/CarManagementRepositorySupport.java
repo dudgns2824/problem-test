@@ -11,12 +11,19 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class CarManagementRepositorySupport {
-    private final JPAQueryFactory jpaQueryFactory;
+
+    private final JPAQueryFactory carManagementQueryFactory;
+
+    @Autowired
+    CarManagementRepositorySupport(@Qualifier(value = "carManagementQueryFactory") JPAQueryFactory carManagementQueryFactory) {
+        this.carManagementQueryFactory = carManagementQueryFactory;
+    }
+
     private final QCarEntity qCar = QCarEntity.carEntity;
     private final QCarCategoryEntity qCarCategoryEntity = QCarCategoryEntity.carCategoryEntity;
     private final QCompanyEntity qCompanyEntity = QCompanyEntity.companyEntity;
@@ -27,7 +34,7 @@ public class CarManagementRepositorySupport {
 
         return ResponseCarManagementListDto.builder()
                 .carManagementDtoList(
-                        jpaQueryFactory
+                        carManagementQueryFactory
                                 .selectFrom(qCar)
                                 .leftJoin(qCompanyEntity).on(qCompanyEntity.companyCode.eq(qCar.companyEntity.companyCode))
                                 .where(

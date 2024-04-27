@@ -21,16 +21,16 @@ public class CarEntity {
     private Long idx;
 
     @OneToMany
-    @JoinColumn(name = "car_category_idx")
-    private List<CarCategoryEntity> carCategoryEntityList = new ArrayList<>();
+    @JoinColumn(name = "car_idx")
+    private List<CarCategoryMappingEntity> carCategoryEntityList = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name = "company_idx")
     private CompanyEntity companyEntity;
 
-    @Column
+    @Column(name = "model_name")
     private String modelName;
 
-    @Column
+    @Column(name = "created_year")
     private String createdYear;
 }

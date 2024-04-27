@@ -17,8 +17,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "company")
 public class CompanyEntity {
     @Id
+    @Column(name = "company_code")
     private Integer companyCode;
 
-    @Column
+    @Column(name = "company_name")
     private String companyName;
 }

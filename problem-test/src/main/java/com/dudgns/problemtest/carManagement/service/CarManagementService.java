@@ -1,6 +1,7 @@
 package com.dudgns.problemtest.carManagement.service;
 
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementListDto;
+import com.dudgns.problemtest.repository.carManagement.CarManagementRepository;
 import com.dudgns.problemtest.repository.carManagement.support.CarManagementRepositorySupport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 public class CarManagementService {
 
     private final CarManagementRepositorySupport carManagementRepositorySupport;
+    private final CarManagementRepository carManagementRepository;
+
 
     public ResponseCarManagementListDto lookUpCar(Integer companyCode,
                                                   String startDt,

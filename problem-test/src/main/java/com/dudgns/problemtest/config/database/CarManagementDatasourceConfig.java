@@ -35,20 +35,22 @@ public class CarManagementDatasourceConfig {
 
         //Entity 패키지 경로
         em.setPackagesToScan(new String[] { "com.dudgns.problemtest.entity.carManagement" });
+        em.setPersistenceUnitName("carManagementEntityManager");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
 
         //Hibernate 설정
         HashMap<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl.auto",env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.hbm2ddl.auto",env.getProperty("hibernate.ddl-auto.auto"));
         properties.put("hibernate.dialect",env.getProperty("hibernate.dialect"));
+        properties.put("hibernate.ejb.naming_strategy","org.hibernate.cfg.DefaultNamingStrategy");
         em.setJpaPropertyMap(properties);
         return em;
     }
 
     @Bean
-    @ConfigurationProperties(prefix="spring.datasource.carmanagement")
+    @ConfigurationProperties(prefix="spring.datasource.car-management")
     public DataSource carManagementDataSource() {
         return DataSourceBuilder.create().build();
     }
