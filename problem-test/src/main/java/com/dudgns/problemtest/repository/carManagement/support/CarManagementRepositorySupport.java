@@ -3,6 +3,7 @@ package com.dudgns.problemtest.repository.carManagement.support;
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementDto;
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementListDto;
 import com.dudgns.problemtest.entity.carManagement.QCarCategoryEntity;
+import com.dudgns.problemtest.entity.carManagement.QCarCategoryMappingEntity;
 import com.dudgns.problemtest.entity.carManagement.QCarEntity;
 import com.dudgns.problemtest.entity.carManagement.QCompanyEntity;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -25,7 +26,8 @@ public class CarManagementRepositorySupport {
     }
 
     private final QCarEntity qCar = QCarEntity.carEntity;
-    private final QCarCategoryEntity qCarCategoryEntity = QCarCategoryEntity.carCategoryEntity;
+    private final QCarCategoryEntity qCarCategory = QCarCategoryEntity.carCategoryEntity;
+    private final QCarCategoryMappingEntity qCarCategoryMapping = QCarCategoryMappingEntity.carCategoryMappingEntity;
     private final QCompanyEntity qCompanyEntity = QCompanyEntity.companyEntity;
 
     public ResponseCarManagementListDto findAllSearchValue(Integer companyCode,
@@ -36,6 +38,7 @@ public class CarManagementRepositorySupport {
                 .carManagementDtoList(
                         carManagementQueryFactory
                                 .selectFrom(qCar)
+                                .innerJoin(qCarCategoryMapping).on(qCarCategoryMapping.carIdx.eq(qCar.idx))
                                 .leftJoin(qCompanyEntity).on(qCompanyEntity.companyCode.eq(qCar.companyEntity.companyCode))
                                 .where(
                                         companyCodeBooleanExpression(companyCode)
