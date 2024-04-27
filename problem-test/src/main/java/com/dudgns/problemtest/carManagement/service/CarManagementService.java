@@ -1,6 +1,7 @@
 package com.dudgns.problemtest.carManagement.service;
 
 import com.dudgns.problemtest.carManagement.dto.RequestCarManagementRegistDto;
+import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementDto;
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementListDto;
 import com.dudgns.problemtest.entity.carManagement.CarCategoryEntity;
 import com.dudgns.problemtest.entity.carManagement.CarCategoryMappingEntity;
@@ -11,11 +12,10 @@ import com.dudgns.problemtest.repository.carManagement.CarCategoryMappingReposit
 import com.dudgns.problemtest.repository.carManagement.CarCategoryRepository;
 import com.dudgns.problemtest.repository.carManagement.CarRepository;
 import com.dudgns.problemtest.repository.carManagement.CompanyRepository;
-import com.dudgns.problemtest.repository.carManagement.support.CarManagementRepositorySupport;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,19 +24,33 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class CarManagementService {
-
-    private final CarManagementRepositorySupport carManagementRepositorySupport;
     private final CarRepository carRepository;
     private final CarCategoryMappingRepository carCategoryMappingRepository;
     private final CarCategoryRepository carCategoryRepository;
     private final CompanyRepository companyRepository;
 
+    @Transactional()
 
     public ResponseCarManagementListDto lookUpCar(Integer companyCode,
-                                                  String startDt,
-                                                  String endDt) {
+                                                  Integer startYear,
+                                                  Integer endYear) {
 
-        return carManagementRepositorySupport.findAllSearchValue(companyCode, startDt, endDt);
+        List<CarEntity> carEntityList = carRepository.findAllBySearchValue(companyCode, startYear, endYear);
+
+        return ResponseCarManagementListDto.builder()
+                .carManagementDtoList(carEntityList.stream()
+                        .map(e -> ResponseCarManagementDto.builder()
+                                .modelName(e.getModelName())
+                                .company(e.getCompanyEntity().getCompanyName())
+                                .carCategory(
+                                        e.getCarCategoryMappingEntityList().stream()
+                                                .map(carCategory -> carCategory.getCategoryName())
+                                                .toList()
+                                )
+                                .createdYear(e.getCreatedYear())
+                                .build())
+                        .toList())
+                .build();
     }
 
     @Transactional
