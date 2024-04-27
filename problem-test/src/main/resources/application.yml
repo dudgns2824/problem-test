@@ -1,0 +1,59 @@
+## ?? ??
+server:
+  port: 8080
+  shutdown: graceful
+  name: problem-test
+
+## ??? web ?? 
+spring:
+  datasource:
+    auth:
+      jdbc-url: jdbc:mariadb://localhost:3306/auth
+      username: user
+      password: 1234
+      driver-class-name: org.mariadb.jdbc.Driver
+    carmanagement:
+      jdbc-url: jdbc:mariadb://localhost:3306/carManagement
+      username: user
+      password: 1234
+      driver-class-name: org.mariadb.jdbc.Driver
+  application:
+    name: auth
+  servlet:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+  logging:
+    level:
+      org.hibernate.SQL: debug
+      org.hibernate.type: trace
+
+## ??? ??(spring doc)
+springdoc:
+  api-docs.enabled: true
+  packages-to-scan: com.backend
+  swagger-ui.path: /api/v1/problem-test/swagger-ui
+  api-docs.path: /api/v1/problem-test/api-docs
+  api-docs.groups.enabled: true
+  cache.disabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  server.url: http://localhost:8080
+
+## JWT ??
+jwt:
+  secret: sS6BA4bV9Ng2z$47@4d72&w6&U!RLb!W
