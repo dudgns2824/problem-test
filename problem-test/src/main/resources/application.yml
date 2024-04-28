@@ -1,10 +1,17 @@
-## ?? ??
 server:
   port: 8080
   shutdown: graceful
   name: problem-test
-
-## ??? web ?? 
+springdoc:
+  api-docs.enabled: true
+  packages-to-scan: com.dudgns
+  swagger-ui.path: /api/v1/carManagement/swagger-ui
+  api-docs.path: /api/v1/carManagement/api-docs
+  api-docs.groups.enabled: true
+  cache.disabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  server.url: http://localhost:8080
 spring:
   datasource:
     auth:
@@ -43,19 +50,5 @@ spring:
     level:
       org.hibernate.SQL: debug
       org.hibernate.type: trace
-
-## ??? ??(spring doc)
-springdoc:
-  api-docs.enabled: true
-  packages-to-scan: com.backend
-  swagger-ui.path: /api/v1/problem-test/swagger-ui
-  api-docs.path: /api/v1/problem-test/api-docs
-  api-docs.groups.enabled: true
-  cache.disabled: true
-  default-consumes-media-type: application/json;charset=UTF-8
-  default-produces-media-type: application/json;charset=UTF-8
-  server.url: http://localhost:8080
-
-## JWT ??
 jwt:
   secret: sS6BA4bV9Ng2z$47@4d72&w6&U!RLb!W

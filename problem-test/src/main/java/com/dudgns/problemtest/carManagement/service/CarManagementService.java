@@ -1,5 +1,6 @@
 package com.dudgns.problemtest.carManagement.service;
 
+import com.dudgns.problemtest.carManagement.dto.RequestCarManagementModifyDto;
 import com.dudgns.problemtest.carManagement.dto.RequestCarManagementRegistDto;
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementDto;
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementListDto;
@@ -29,7 +30,7 @@ public class CarManagementService {
     private final CarCategoryRepository carCategoryRepository;
     private final CompanyRepository companyRepository;
 
-    @Transactional()
+    @Transactional(readOnly = true)
 
     public ResponseCarManagementListDto lookUpCar(Integer companyCode,
                                                   Integer startYear,
@@ -55,6 +56,49 @@ public class CarManagementService {
 
     @Transactional
     public Boolean registCar(RequestCarManagementRegistDto req) {
+        List<CarCategoryEntity> categoryEntityList = req.getCategoryTypeList().size() > 0 ? carCategoryRepository
+                .findAll()
+                .stream()
+                .filter(carCategory -> req.getCategoryTypeList().contains(carCategory.getCategoryType()))
+                .toList() : new ArrayList<>();
+
+        Optional<CompanyEntity> companyEntityOptional = companyRepository.findById(req.getCompanyCode());
+
+        CarEntity carEntity = carRepository.save(
+                CarEntity
+                        .builder()
+                        .companyEntity(
+                                companyEntityOptional.isPresent() ?
+                                        CompanyEntity.builder()
+                                                .companyCode(companyEntityOptional.get().getCompanyCode())
+                                                .companyName(companyEntityOptional.get().getCompanyName())
+                                                .build() : null
+                        )
+                        .modelName(req.getModelName())
+                        .createdYear(req.getCreatedYear())
+                        .rentalYn(req.getRentalYn())
+                        .build()
+        );
+
+        carCategoryMappingRepository.saveAll(
+                categoryEntityList.stream()
+                        .map(carCategory -> CarCategoryMappingEntity.builder()
+                                .carCategoryMappingId(
+                                        CarCategoryMappingId.builder()
+                                                .carIdx(carEntity.getIdx())
+                                                .categoryType(carCategory.getCategoryType())
+                                                .build()
+                                )
+                                .categoryName(carCategory.getCategoryName())
+                                .build())
+                        .toList()
+        );
+
+        return true;
+    }
+
+    @Transactional
+    public Boolean modifyCar(RequestCarManagementModifyDto req) {
         List<CarCategoryEntity> categoryEntityList = req.getCategoryTypeList().size() > 0 ? carCategoryRepository
                 .findAll()
                 .stream()

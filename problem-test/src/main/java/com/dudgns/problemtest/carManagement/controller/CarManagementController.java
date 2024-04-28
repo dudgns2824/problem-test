@@ -1,5 +1,6 @@
 package com.dudgns.problemtest.carManagement.controller;
 
+import com.dudgns.problemtest.carManagement.dto.RequestCarManagementModifyDto;
 import com.dudgns.problemtest.carManagement.dto.RequestCarManagementRegistDto;
 import com.dudgns.problemtest.carManagement.dto.ResponseCarManagementListDto;
 import com.dudgns.problemtest.carManagement.service.CarManagementService;
@@ -54,6 +55,28 @@ public class CarManagementController {
                             .statusCode(200)
                             .status("success")
                             .data(carManagementService.registCar(req))
+                            .build()
+            );
+        } catch (Exception e) {
+            return ResponseEntity.ok(
+                    BaseRepsonseDto.<Boolean>builder()
+                            .statusCode(500)
+                            .status(e.getMessage())
+                            .data(null)
+                            .build()
+            );
+        }
+    }
+
+    @PutMapping
+    @Operation(summary = "자동차 수정 API", description = "자동차 수정 API 입니다.")
+    public ResponseEntity<BaseRepsonseDto<Boolean>> carModify(@RequestBody RequestCarManagementModifyDto req) {
+        try {
+            return ResponseEntity.ok(
+                    BaseRepsonseDto.<Boolean>builder()
+                            .statusCode(200)
+                            .status("success")
+                            .data(carManagementService.modifyCar(req))
                             .build()
             );
         } catch (Exception e) {

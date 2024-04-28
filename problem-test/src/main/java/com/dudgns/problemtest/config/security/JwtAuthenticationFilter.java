@@ -42,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String URL = "/api/v1/carManagement";
 
         String path = request.getRequestURI();
-        String[] excludePath = {URL+"/user/create", URL+"/user/login", URL+"/mail/verify", URL+"/mail/request"};
+        String[] excludePath = {URL+"/swagger-ui", URL+"/api-docs"};
         return Arrays.stream(excludePath).anyMatch(path::startsWith);
     }
 
