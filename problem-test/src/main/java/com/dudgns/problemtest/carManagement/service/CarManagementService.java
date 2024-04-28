@@ -91,12 +91,8 @@ public class CarManagementService {
 
     @Transactional
     public Boolean modifyCar(RequestCarManagementModifyDto req) {
-        carCategoryMappingRepository.deleteAll(
-                carCategoryMappingRepository.findByCarCategoryMappingId(CarCategoryMappingId
-                .builder()
-                .carIdx(req.getCarIdx())
-                .build())
-        );
+        List<CarCategoryMappingEntity> carCategoryMappingEntityList = carCategoryMappingRepository.findByCarCategoryMappingIdCarIdx(req.getCarIdx());
+        carCategoryMappingRepository.deleteAll(carCategoryMappingRepository.findByCarCategoryMappingIdCarIdx(req.getCarIdx()));
 
         List<CarCategoryEntity> categoryEntityList = req.getCategoryTypeList().size() > 0 ? carCategoryRepository
                 .findAll()
@@ -110,13 +106,7 @@ public class CarManagementService {
                 CarEntity
                         .builder()
                         .idx(req.getCarIdx())
-                        .companyEntity(
-                                companyEntityOptional.isPresent() ?
-                                        CompanyEntity.builder()
-                                                .companyCode(companyEntityOptional.get().getCompanyCode())
-                                                .companyName(companyEntityOptional.get().getCompanyName())
-                                                .build() : null
-                        )
+                        .companyCode(req.getCompanyCode())
                         .modelName(req.getModelName())
                         .createdYear(req.getCreatedYear())
                         .rentalYn(req.getRentalYn())

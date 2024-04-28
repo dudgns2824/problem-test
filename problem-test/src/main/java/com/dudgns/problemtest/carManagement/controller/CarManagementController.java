@@ -68,10 +68,11 @@ public class CarManagementController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/{car_idx}")
     @Operation(summary = "자동차 수정 API", description = "자동차 수정 API 입니다.")
-    public ResponseEntity<BaseRepsonseDto<Boolean>> carModify(@RequestBody RequestCarManagementModifyDto req) {
+    public ResponseEntity<BaseRepsonseDto<Boolean>> carModify(@PathVariable("car_idx") Long carIdx, @RequestBody RequestCarManagementModifyDto req) {
         try {
+            req.setCarIdx(carIdx);
             return ResponseEntity.ok(
                     BaseRepsonseDto.<Boolean>builder()
                             .statusCode(200)

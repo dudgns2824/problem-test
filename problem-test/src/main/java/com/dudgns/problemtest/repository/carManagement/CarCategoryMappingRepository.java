@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface CarCategoryMappingRepository extends JpaRepository<CarCategoryMappingEntity, Long> {
-    List<CarCategoryMappingEntity> findByCarCategoryMappingId(CarCategoryMappingId carCategoryMappingId);
+    List<CarCategoryMappingEntity> findByCarCategoryMappingIdCarIdx(Long carIdx);
 }

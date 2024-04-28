@@ -20,8 +20,8 @@ public class CarEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_idx")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "car_idx", insertable = false, updatable = false)
     private List<CarCategoryMappingEntity> carCategoryMappingEntityList = new ArrayList<>();
 
     @Column(name = "company_code", insertable = true, updatable = true)
