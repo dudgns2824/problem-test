@@ -20,4 +20,6 @@ public class ResponseCarManagementDto {
     private String company;
     @Schema(description = "생산 년도")
     private Integer createdYear;
+    @Schema(description = "대여 가능 여부")
+    private Boolean rentalYn;
 }

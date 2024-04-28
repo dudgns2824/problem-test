@@ -49,6 +49,7 @@ public class CarManagementService {
                                                 .toList()
                                 )
                                 .createdYear(e.getCreatedYear())
+                                .rentalYn(e.getRentalYn())
                                 .build())
                         .toList())
                 .build();
@@ -91,7 +92,6 @@ public class CarManagementService {
 
     @Transactional
     public Boolean modifyCar(RequestCarManagementModifyDto req) {
-        List<CarCategoryMappingEntity> carCategoryMappingEntityList = carCategoryMappingRepository.findByCarCategoryMappingIdCarIdx(req.getCarIdx());
         carCategoryMappingRepository.deleteAll(carCategoryMappingRepository.findByCarCategoryMappingIdCarIdx(req.getCarIdx()));
 
         List<CarCategoryEntity> categoryEntityList = req.getCategoryTypeList().size() > 0 ? carCategoryRepository
