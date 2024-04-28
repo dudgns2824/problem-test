@@ -33,10 +33,11 @@ public class CarManagementService {
     @Transactional(readOnly = true)
 
     public ResponseCarManagementListDto lookUpCar(Integer companyCode,
+                                                  Boolean rentalYn,
                                                   Integer startYear,
                                                   Integer endYear) {
 
-        List<CarEntity> carEntityList = carRepository.findAllBySearchValue(companyCode, startYear, endYear);
+        List<CarEntity> carEntityList = carRepository.findAllBySearchValue(companyCode, rentalYn, startYear, endYear);
 
         return ResponseCarManagementListDto.builder()
                 .carManagementDtoList(carEntityList.stream()
