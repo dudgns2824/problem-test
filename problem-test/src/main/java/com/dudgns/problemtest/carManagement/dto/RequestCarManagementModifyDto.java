@@ -17,7 +17,7 @@ import java.util.List;
 public class RequestCarManagementModifyDto {
     @Schema(description = "자동차 인덱스 번호")
     @JsonProperty(value = "car_idx")
-    private String carIdx;
+    private Long carIdx;
     @Schema(description = "카테고리 타입 목록")
     @JsonProperty(value = "category_type_list")
     private List<Integer> categoryTypeList;
