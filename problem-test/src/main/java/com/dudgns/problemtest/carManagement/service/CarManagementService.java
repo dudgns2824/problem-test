@@ -62,18 +62,10 @@ public class CarManagementService {
                 .filter(carCategory -> req.getCategoryTypeList().contains(carCategory.getCategoryType()))
                 .toList() : new ArrayList<>();
 
-        Optional<CompanyEntity> companyEntityOptional = companyRepository.findById(req.getCompanyCode());
-
         CarEntity carEntity = carRepository.save(
                 CarEntity
                         .builder()
-                        .companyEntity(
-                                companyEntityOptional.isPresent() ?
-                                        CompanyEntity.builder()
-                                                .companyCode(companyEntityOptional.get().getCompanyCode())
-                                                .companyName(companyEntityOptional.get().getCompanyName())
-                                                .build() : null
-                        )
+                        .companyCode(req.getCompanyCode())
                         .modelName(req.getModelName())
                         .createdYear(req.getCreatedYear())
                         .rentalYn(req.getRentalYn())

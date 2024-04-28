@@ -24,8 +24,11 @@ public class CarEntity {
     @JoinColumn(name = "car_idx")
     private List<CarCategoryMappingEntity> carCategoryMappingEntityList = new ArrayList<>();
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "company_code", referencedColumnName = "company_code")
+    @Column(name = "company_code", insertable = true, updatable = true)
+    private Long companyCode;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_code", referencedColumnName = "company_code", insertable = false, updatable = false)
     private CompanyEntity companyEntity;
 
     @Column(name = "model_name")
