@@ -24,6 +24,7 @@ public class CarManagementController {
     @Operation(summary = "자동차 조회 API", description = "자동차 조회 API 입니다.")
     public ResponseEntity<BaseRepsonseDto<ResponseCarManagementListDto>> lookup(
             @RequestParam(value = "company_code", required = false) Integer companyCode,
+            @RequestParam(value = "category_lookup", required = false) Boolean isCategoryLookup,
             @RequestParam(value = "rental_yn", required = false) Boolean rentalYn,
             @RequestParam(value = "start_year", required = false) Integer startYear,
             @RequestParam(value = "end_year", required = false) Integer endYear
@@ -33,7 +34,7 @@ public class CarManagementController {
                     BaseRepsonseDto.<ResponseCarManagementListDto>builder()
                             .statusCode(200)
                             .status("success")
-                            .data(carManagementService.lookUpCar(companyCode, rentalYn, startYear, endYear))
+                            .data(carManagementService.lookUpCar(companyCode, isCategoryLookup, rentalYn, startYear, endYear))
                             .build()
             );
         } catch (Exception e) {

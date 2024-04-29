@@ -19,4 +19,15 @@ public interface CarRepository extends JpaRepository<CarEntity, Long> {
             "AND (?3 is null or c.createdYear >= ?3)" +
             "AND (?4 is null or c.createdYear <= ?4) ")
     List<CarEntity> findAllBySearchValue(Integer companyCode, Boolean rentalYn, Integer startYear, Integer endYear);
+
+    @Query("select c " +
+            "from CarCategoryMappingEntity ccm " +
+            "join fetch CarEntity c on c.idx = ccm.carCategoryMappingId.carIdx " +
+            "left join fetch c.companyEntity " +
+            "where (?1 is null or c.companyEntity.companyCode = ?1)" +
+            "AND (?2 is null or c.rentalYn = ?2)" +
+            "AND (?3 is null or c.createdYear >= ?3)" +
+            "AND (?4 is null or c.createdYear <= ?4)" +
+            "GROUP BY ccm.carCategoryMappingId.categoryType")
+    List<CarEntity> findAllBySearchValueGroupByCategory(Integer companyCode, Boolean rentalYn, Integer startYear, Integer endYear);
 }
