@@ -28,15 +28,12 @@ public class CarManagementService {
     private final CarRepository carRepository;
     private final CarCategoryMappingRepository carCategoryMappingRepository;
     private final CarCategoryRepository carCategoryRepository;
-    private final CompanyRepository companyRepository;
 
     @Transactional(readOnly = true)
-
     public ResponseCarManagementListDto lookUpCar(Integer companyCode,
                                                   Boolean rentalYn,
                                                   Integer startYear,
                                                   Integer endYear) {
-
         List<CarEntity> carEntityList = carRepository.findAllBySearchValue(companyCode, rentalYn, startYear, endYear);
 
         return ResponseCarManagementListDto.builder()
@@ -58,11 +55,7 @@ public class CarManagementService {
 
     @Transactional
     public Boolean registCar(RequestCarManagementRegistDto req) {
-        List<CarCategoryEntity> categoryEntityList = req.getCategoryTypeList().size() > 0 ? carCategoryRepository
-                .findAll()
-                .stream()
-                .filter(carCategory -> req.getCategoryTypeList().contains(carCategory.getCategoryType()))
-                .toList() : new ArrayList<>();
+        List<CarCategoryEntity> categoryEntityList = getCarCategoryListByCategoryType(req.getCategoryTypeList());
 
         CarEntity carEntity = carRepository.save(
                 CarEntity
@@ -74,19 +67,7 @@ public class CarManagementService {
                         .build()
         );
 
-        carCategoryMappingRepository.saveAll(
-                categoryEntityList.stream()
-                        .map(carCategory -> CarCategoryMappingEntity.builder()
-                                .carCategoryMappingId(
-                                        CarCategoryMappingId.builder()
-                                                .carIdx(carEntity.getIdx())
-                                                .categoryType(carCategory.getCategoryType())
-                                                .build()
-                                )
-                                .categoryName(carCategory.getCategoryName())
-                                .build())
-                        .toList()
-        );
+        saveCarCategoryMappingByCarCategory(carEntity, categoryEntityList);
 
         return true;
     }
@@ -95,13 +76,7 @@ public class CarManagementService {
     public Boolean modifyCar(RequestCarManagementModifyDto req) {
         carCategoryMappingRepository.deleteAll(carCategoryMappingRepository.findByCarCategoryMappingIdCarIdx(req.getCarIdx()));
 
-        List<CarCategoryEntity> categoryEntityList = req.getCategoryTypeList().size() > 0 ? carCategoryRepository
-                .findAll()
-                .stream()
-                .filter(carCategory -> req.getCategoryTypeList().contains(carCategory.getCategoryType()))
-                .toList() : new ArrayList<>();
-
-        Optional<CompanyEntity> companyEntityOptional = companyRepository.findById(req.getCompanyCode());
+        List<CarCategoryEntity> categoryEntityList = getCarCategoryListByCategoryType(req.getCategoryTypeList());
 
         CarEntity carEntity = carRepository.save(
                 CarEntity
@@ -114,6 +89,20 @@ public class CarManagementService {
                         .build()
         );
 
+        saveCarCategoryMappingByCarCategory(carEntity, categoryEntityList);
+
+        return true;
+    }
+
+    public List<CarCategoryEntity> getCarCategoryListByCategoryType(List<Integer> categoryType){
+        return categoryType.size() > 0 ? carCategoryRepository
+                .findAll()
+                .stream()
+                .filter(carCategory -> categoryType.contains(carCategory.getCategoryType()))
+                .toList() : new ArrayList<>();
+    }
+
+    public void saveCarCategoryMappingByCarCategory(CarEntity carEntity, List<CarCategoryEntity> categoryEntityList) {
         carCategoryMappingRepository.saveAll(
                 categoryEntityList.stream()
                         .map(carCategory -> CarCategoryMappingEntity.builder()
@@ -127,7 +116,5 @@ public class CarManagementService {
                                 .build())
                         .toList()
         );
-
-        return true;
     }
 }
