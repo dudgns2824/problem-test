@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Slf4j
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
@@ -24,8 +26,8 @@ public class CarManagementController {
     @Operation(summary = "자동차 조회 API", description = "자동차 조회 API 입니다.")
     public ResponseEntity<BaseRepsonseDto<ResponseCarManagementListDto>> lookup(
             @RequestParam(value = "company_code", required = false) Integer companyCode,
-            @RequestParam(value = "category_lookup", required = false) Boolean isCategoryLookup,
             @RequestParam(value = "rental_yn", required = false) Boolean rentalYn,
+            @RequestParam(value = "category_code_list", required = false) List<Long> categoryCodeList,
             @RequestParam(value = "start_year", required = false) Integer startYear,
             @RequestParam(value = "end_year", required = false) Integer endYear
     ) {
@@ -34,7 +36,7 @@ public class CarManagementController {
                     BaseRepsonseDto.<ResponseCarManagementListDto>builder()
                             .statusCode(200)
                             .status("success")
-                            .data(carManagementService.lookUpCar(companyCode, isCategoryLookup, rentalYn, startYear, endYear))
+                            .data(carManagementService.lookUpCar(companyCode, rentalYn, startYear, endYear, categoryCodeList))
                             .build()
             );
         } catch (Exception e) {
