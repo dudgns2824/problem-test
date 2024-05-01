@@ -46,9 +46,9 @@ spring:
     max-request-per-time: 3
     mail-verify-expire-time: 3
     mail-request-expire: 86400
-    from-email: sun28242@gmail.com
-    username: sun28242@gmail.com
-    password: sgkdvgyrmgbybskb
+    from-email: dudgns2824@gmail.com
+    username: dudgns2824@gmail.com
+    password: 이메일 비밀번호
     host: smtp.gmail.com
     port: 587
     properties:
