@@ -7,12 +7,7 @@ server:
 ## 스프링 web 설정 
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/auth
-    username: user
-    password: 1234
-    driver-class-name: org.mariadb.jdbc.Driver
-  purchase-datasource:
-    url: jdbc:mariadb://localhost:3306/purchase
+    url: jdbc:mariadb://localhost:3306/carmanagement
     username: user
     password: 1234
     driver-class-name: org.mariadb.jdbc.Driver
@@ -51,9 +46,9 @@ spring:
     max-request-per-time: 3
     mail-verify-expire-time: 3
     mail-request-expire: 86400
-    from-email: 이메일
-    username: 이메일 id
-    password: 이메일 비밀번호
+    from-email: sun28242@gmail.com
+    username: sun28242@gmail.com
+    password: sgkdvgyrmgbybskb
     host: smtp.gmail.com
     port: 587
     properties:

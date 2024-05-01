@@ -22,7 +22,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @PutMapping("/create")
+    @PostMapping("/create")
     public ResponseEntity<BaseRepsonseDto> create(@RequestBody @Valid RequestCreateUserDto req) {
 
         ResponseCreateUserDto dto = null;

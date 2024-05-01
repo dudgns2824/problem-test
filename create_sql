@@ -1,0 +1,78 @@
+CREATE TABLE `car` (
+	`idx` INT(11) NOT NULL AUTO_INCREMENT,
+	`company_code` INT(11) NOT NULL,
+	`model_name` VARCHAR(64) NOT NULL COLLATE 'utf8mb3_general_ci',
+	`created_year` INT(8) NULL DEFAULT '0',
+	`rental_yn` TINYINT(4) NULL DEFAULT NULL,
+	PRIMARY KEY (`idx`) USING BTREE
+)
+COLLATE='utf8mb3_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+CREATE TABLE `car_category` (
+	`category_type` INT(11) NOT NULL AUTO_INCREMENT,
+	`category_name` VARCHAR(64) NOT NULL COLLATE 'utf8mb3_general_ci',
+	PRIMARY KEY (`category_type`) USING BTREE
+)
+COLLATE='utf8mb3_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+CREATE TABLE `car_category_mapping` (
+	`car_idx` INT(11) NOT NULL,
+	`category_type` INT(11) NOT NULL,
+	`category_name` VARCHAR(64) NOT NULL COLLATE 'utf8mb3_general_ci',
+	PRIMARY KEY (`car_idx`, `category_type`) USING BTREE,
+	CONSTRAINT `car_category_mapping_ibfk_1` FOREIGN KEY (`car_idx`) REFERENCES `car` (`idx`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8mb3_general_ci'
+ENGINE=InnoDB
+;
+CREATE TABLE `company` (
+	`company_code` INT(11) NOT NULL AUTO_INCREMENT,
+	`company_name` VARCHAR(256) NOT NULL COLLATE 'utf8mb3_general_ci',
+	PRIMARY KEY (`company_code`) USING BTREE
+)
+COLLATE='utf8mb3_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+CREATE TABLE `user` (
+	`idx` INT(11) NOT NULL AUTO_INCREMENT,
+	`created_date` DATETIME(6) NULL DEFAULT NULL,
+	`expire_date` DATETIME(6) NULL DEFAULT NULL,
+	`user_created_date` DATETIME NOT NULL,
+	`user_guid` VARBINARY(36) NOT NULL,
+	`user_email` VARCHAR(256) NOT NULL COLLATE 'utf8mb3_general_ci',
+	`user_id` VARCHAR(256) NOT NULL COLLATE 'utf8mb3_general_ci',
+	`user_password` VARCHAR(256) NOT NULL COLLATE 'utf8mb3_general_ci',
+	`user_roles` VARCHAR(255) NOT NULL COLLATE 'utf8mb3_general_ci',
+	PRIMARY KEY (`idx`, `user_guid`) USING BTREE
+)
+COLLATE='utf8mb3_general_ci'
+ENGINE=InnoDB
+;
+CREATE TABLE `user_token` (
+	`user_guid` VARBINARY(36) NOT NULL,
+	`refresh_token` VARCHAR(256) NOT NULL COLLATE 'utf8mb3_general_ci',
+	`expire_date` DATETIME(6) NOT NULL,
+	`created_date` DATETIME(6) NOT NULL,
+	PRIMARY KEY (`user_guid`) USING BTREE
+)
+COLLATE='utf8mb3_general_ci'
+ENGINE=InnoDB
+;
+
+
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (1, '미니');
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (2, '준중형');
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (3, '대형');
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (4, '중형');
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (5, 'SUV');
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (6, 'RV');
+INSERT INTO `car_category` (`category_type`, `category_name`) VALUES (7, '트럭 ');
+
+INSERT INTO `company` (`company_code`, `company_name`) VALUES (1, '현대');
+INSERT INTO `company` (`company_code`, `company_name`) VALUES (2, 'KIA');
+

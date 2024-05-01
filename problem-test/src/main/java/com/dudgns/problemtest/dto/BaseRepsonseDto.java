@@ -1,5 +1,6 @@
 package com.dudgns.problemtest.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 @Builder
@@ -9,8 +10,9 @@ import lombok.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "기본 응답 포맷")
 public class BaseRepsonseDto<T>{
     private Integer statusCode;
     private String status;
-    private Object data;
+    private T data;
 }
