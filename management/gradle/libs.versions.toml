@@ -1,0 +1,270 @@
+[versions]
+kotlin = "1.9.24"
+
+kotlinx-coroutine = "1.8.0"
+kotlinx-datetime = "0.5.0"
+kotlinx-uuid = "0.0.25"
+kotlinx-serialization-json = "1.6.3"
+
+spring-boot = "3.2.5"
+spring-openfeign = "4.1.1"
+spring-aws = "2.2.6.RELEASE"
+spring-security = "6.2.4"
+spring-kafka = "3.1.4"
+spring-dependency-management = "1.1.4"
+spring-tx = "6.1.2"
+
+spring-data-querydsl-r2dbc = "9.0.7"
+spring-data-querydsl-jpa = "5.1.0"
+#spring-data-querydsl-jpa = "5.1.0"
+
+mysql-jpa = "8.4.0"
+mysql-r2dbc = "1.1.3"
+h2 = "2.1.214"
+h2-r2dbc = "1.0.0.RELEASE"
+
+springdoc-openapi-starter-webmvc-ui = "2.5.0"
+springdoc-openapi-starter-webflux = "2.5.0"
+
+kotest-runner-junit5 = "5.8.1"
+kotest-extensions-spring = "1.1.3"
+kotest-extensions-mock-server = "1.3.0"
+kotest-extensions-testcontainers = "2.0.2"
+
+flyway = "10.12.0"
+
+testcontainers = "1.19.8"
+
+junit = "5.10.2"
+mockk = "1.13.10"
+hamcrest = "2.2"
+springmockk = "4.0.2"
+
+napier = "2.7.1"
+kotlin-logging = "6.0.9"
+
+ktor = "2.3.11"
+ktor-client-cio = "2.3.11"
+
+reactor = "3.6.5"
+reactor-kotlin-extensions = "1.2.2"
+
+jackson = "2.16.1"
+
+jjwt = "0.12.3"
+
+jakarta-servlet-api = "6.1.0-M2"
+jakarta-validation-api = "3.0.2"
+
+mock-server = "5.15.0"
+
+mapstruct = "1.5.5.Final"
+commons-codec = "1.16.1"
+tika-core = "2.9.2"
+
+[bundles]
+test-kotest = ["mockk", "springmockk", "kotest-runner-junit5", "kotest-extensions-spring", "spring-boot-starter-test", "kotest-extensions-mock-server", "kotest-extensions-testcontainers"]
+test-junit = ["mockk", "springmockk", "kotlin-test", "kotlin-test-junit5", "junit", "junit-jupiter", "hamcrest", "spring-boot-starter-test"]
+
+# :commons: 공통
+commons-common = []
+
+commons-infrastructure = ["spring-boot-starter-web", "spring-security-core", "jackson-datatype-jdk8",
+    "jackson-datatype-jsr310", "jackson-module-kotlin"]
+commons-infrastructure-test = []
+commons-project-carenation-data-entity = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "jakarta-validation-api"]
+commons-project-carenation-data-entity-kapt = ["spring-boot-configuration-processor"]
+commons-project-carenation-data-entity-test = []
+
+# :modules: 공통
+modules-common = []
+
+modules-aop-logging = []
+modules-aop-logging-client = ["spring-boot-starter-web", "spring-boot-starter-aop"]
+modules-aop-logging-client-test = []
+modules-auth = []
+modules-auth-client = ["spring-boot-starter-web", "spring-security-core", "spring-security-config", "spring-security-web",
+    "jackson-module-kotlin", "jjwt-api"]
+modules-auth-client-runtime = ["jjwt-impl", "jjwt-jackson"]
+modules-auth-client-test = ["spring-security-test"]
+modules-auth-api-client = ["spring-boot-starter-web", "spring-security-core", "spring-security-config", "spring-security-web"]
+modules-auth-api-client-test = ["spring-security-test"]
+modules-aws = ["spring-cloud-starter-aws", "spring-boot-starter-web"]
+modules-aws-test = []
+modules-cache = []
+modules-cache-client-test = []
+modules-message = ["jackson-datatype-jdk8", "jackson-datatype-jsr310", "kotlin-serialization-json"]
+modules-message-client = ["spring-boot-starter-web", "jackson-module-kotlin", "mapstruct"]
+modules-message-client-kapt = ["mapstruct-processor"]
+modules-message-client-test = []
+modules-pg-welcome = []
+modules-pg-welcome-client = ["spring-boot-starter-web", "commons-codec", "spring-cloud-starter-openfeign",
+    "springdoc-openapi-starter-webmvc-ui", "mapstruct"]
+modules-pg-welcome-client-test = []
+modules-redis = []
+modules-redis-client = []
+modules-redis-client-test = []
+
+# :project: 공통
+project-common = []
+
+# :project: business
+project-business-mgt-adapter-data-jpa = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "jakarta-validation-api",
+    "jackson-datatype-jdk8", "jackson-datatype-jsr310", "jackson-module-kotlin", "jackson-core", "jackson-databind", ]
+project-business-mgt-adapter-data-jpa-kapt = ["spring-boot-configuration-processor"]
+project-business-mgt-adapter-data-jpa-test = ["flyway-core", "flyway-mysql"]
+project-business-mgt-application = []
+project-business-mgt-application-test = []
+project-business-mgt-bootstrap = ["spring-boot-starter-web"]
+project-business-mgt-connector = ["spring-boot-starter-web", "spring-boot-starter-validation", "jakarta-validation-api",
+    "springdoc-openapi-starter-webmvc-ui", "spring-tx", "kotlinx-coroutines-reactor", "jackson-datatype-jdk8",
+    "jackson-datatype-jsr310", "jackson-module-kotlin", "jackson-core", "jackson-databind", "mapstruct"]
+project-business-mgt-connector-kapt = ["mapstruct-processor"]
+project-business-mgt-connector-test = ["spring-boot-starter-webflux", "mock-server-netty", "mock-server-client-java", ]
+project-business-mgt-admin = []
+
+# :project: partnership
+project-partnership-mgt-adapter-data-jpa = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "jakarta-validation-api",
+    "mapstruct", "jackson-datatype-jdk8", "jackson-datatype-jsr310", "jackson-module-kotlin", "jackson-core", "jackson-databind"]
+project-partnership-mgt-adapter-data-jpa-kapt = ["spring-boot-configuration-processor", "mapstruct-processor"]
+project-partnership-mgt-adapter-data-jpa-test = ["flyway-core", "flyway-mysql"]
+project-partnership-mgt-application = []
+project-partnership-mgt-application-test = []
+project-partnership-mgt-bootstrap = ["spring-boot-starter-web"]
+project-partnership-mgt-connector = ["spring-boot-starter-web", "spring-boot-starter-data-jpa",
+    "spring-boot-starter-validation", "jakarta-validation-api", "springdoc-openapi-starter-webmvc-ui",
+    "spring-tx", "tika-core", "mapstruct"]
+project-partnership-mgt-connector-kapt = ["mapstruct-processor"]
+project-partnership-mgt-connector-test = ["spring-boot-starter-webflux", "mock-server-netty", "mock-server-client-java", ]
+
+# :project: healthscreening
+project-healthscreening-adapter-data-jpa = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "mapstruct"]
+project-healthscreening-adapter-data-jpa-kapt = ["spring-boot-configuration-processor", "mapstruct-processor"]
+project-healthscreening-bootstrap = ["spring-boot-starter-web"]
+project-healthscreening-connector = ["spring-boot-starter-web"]
+
+[libraries]
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlin-allopen = { module = "org.jetbrains.kotlin:kotlin-allopen", version.ref = "kotlin" }
+kotlin-noarg = { module = "org.jetbrains.kotlin:kotlin-noarg", version.ref = "kotlin" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-kapt-gradle-plugin = { module = "org.jetbrains.kotlin.kapt:org.jetbrains.kotlin.kapt.gradle.plugin", version.ref = "kotlin" }
+
+jackson-datatype-jdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson" }
+jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-annotations = { module = "com.fasterxml.jackson.core:jackson-annotations", version.ref = "jackson" }
+
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+
+commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec" }
+
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
+
+spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "spring-boot" }
+spring-security-core = { module = "org.springframework.security:spring-security-core", version.ref = "spring-security" }
+spring-security-config = { module = "org.springframework.security:spring-security-config", version.ref = "spring-security" }
+spring-security-web = { module = "org.springframework.security:spring-security-web", version.ref = "spring-security" }
+spring-security-test = { module = "org.springframework.security:spring-security-test", version.ref = "spring-security" }
+spring-boot-starter-aop = { module = "org.springframework.boot:spring-boot-starter-aop", version.ref = "spring-boot" }
+spring-boot-starter-oauth2-client = { module = "org.springframework.boot:spring-boot-starter-oauth2-client", version.ref = "spring-boot" }
+spring-boot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "spring-boot" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-boot-starter-data-redis = { module = "org.springframework.boot:spring-boot-starter-data-redis", version.ref = "spring-boot" }
+spring-boot-starter-data-redis-reactive = { module = "org.springframework.boot:spring-boot-starter-data-redis-reactive", version.ref = "spring-boot" }
+spring-boot-starter-mail = { module = "org.springframework.boot:spring-boot-starter-mail", version.ref = "spring-boot" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
+spring-boot-starter-data-r2dbc = { module = "org.springframework.boot:spring-boot-starter-data-r2dbc", version.ref = "spring-boot" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot" }
+spring-tx = { module = "org.springframework:spring-tx", version.ref = "spring-tx" }
+spring-boot-testcontainters = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "spring-boot" }
+
+spring-cloud-starter-aws = { module = "org.springframework.cloud:spring-cloud-starter-aws", version.ref = "spring-aws" }
+
+spring-kafka = { module = "org.springframework.kafka:spring-kafka", version.ref = "spring-kafka" }
+spring-kafka-test = { module = "org.springframework.kafka:spring-kafka-test", version.ref = "spring-kafka" }
+
+spring-data-querydsl-r2dbc = { module = "com.infobip:infobip-spring-data-r2dbc-querydsl-boot-starter", version.ref = "spring-data-querydsl-r2dbc" }
+spring-data-querydsl-r2dbc-annotation-processor = { module = "com.infobip:infobip-spring-data-jdbc-annotation-processor", version.ref = "spring-data-querydsl-r2dbc" }
+
+spring-data-querydsl-jpa = { module = "com.querydsl:querydsl-jpa", version.ref = "spring-data-querydsl-jpa" }
+spring-data-querydsl-apt = { module = "com.querydsl:querydsl-apt", version.ref = "spring-data-querydsl-jpa" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "spring-boot" }
+
+springdoc-openapi-starter-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc-openapi-starter-webmvc-ui" }
+springdoc-openapi-starter-webflux = { module = "org.springdoc:springdoc-openapi-starter-webflux-ui", version.ref = "springdoc-openapi-starter-webflux" }
+
+spring-cloud-starter-openfeign = { module = "org.springframework.cloud:spring-cloud-starter-openfeign", version.ref = "spring-openfeign" }
+
+tika-core = { module = "org.apache.tika:tika-core", version.ref = "tika-core" }
+
+db-mysql-jpa = { module = "com.mysql:mysql-connector-j", version.ref = "mysql-jpa" }
+db-mysql-r2dbc = { module = "io.asyncer:r2dbc-mysql", version.ref = "mysql-r2dbc" }
+db-h2 = { module = "com.h2database:h2", version.ref = "h2" }
+db-h2-r2dbc = { module = "io.r2dbc:r2dbc-h2", version.ref = "h2-r2dbc" }
+
+junit = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+springmockk = { module = "com.ninja-squad:springmockk", version.ref = "springmockk" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest-runner-junit5" }
+kotest-extensions-spring = { module = "io.kotest.extensions:kotest-extensions-spring", version.ref = "kotest-extensions-spring" }
+kotest-extensions-testcontainers = { module = "io.kotest.extensions:kotest-extensions-testcontainers", version.ref = "kotest-extensions-testcontainers" }
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor-client-cio" }
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-uuid = { module = "app.softwork:kotlinx-uuid-core", version.ref = "kotlinx-uuid" }
+
+logging-napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging", version.ref = "kotlin-logging" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutine" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutine" }
+kotlinx-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "kotlinx-coroutine" }
+
+reactor-kotlin-extensions = { module = "io.projectreactor.kotlin:reactor-kotlin-extensions", version.ref = "reactor-kotlin-extensions" }
+reactor-test = { module = "io.projectreactor:reactor-test", version.ref = "reactor" }
+
+jjwt-api = { module = "io.jsonwebtoken:jjwt-api", version.ref = "jjwt" }
+jjwt-impl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jjwt" }
+jjwt-jackson = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
+
+jakarta-servlet-api = { module = "jakarta.servlet:jakarta.servlet-api", version.ref = "jakarta-servlet-api" }
+jakarta-validation-api = { module = "jakarta.validation:jakarta.validation-api", version.ref = "jakarta-validation-api" }
+
+mock-server-netty = { module = "org.mock-server:mockserver-netty", version.ref = "mock-server" }
+mock-server-client-java = { module = "org.mock-server:mockserver-client-java", version.ref = "mock-server" }
+kotest-extensions-mock-server = { module = "io.kotest.extensions:kotest-extensions-mockserver", version.ref = "kotest-extensions-mock-server" }
+
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
+
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+testcontainers-mysql = { module = "org.testcontainers:mysql", version.ref = "testcontainers" }
+testcontainers-r2dbc = { module = "org.testcontainers:r2dbc", version.ref = "testcontainers" }
+testcontainers-mockserver = { module = "org.testcontainers:mockserver", version.ref = "testcontainers" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-allopen = { id = "org.jetbrains.kotlin:kotlin-allopen", version.ref = "kotlin" }
+kotlin-noarg = { id = "org.jetbrains.kotlin:kotlin-noarg", version.ref = "kotlin" }
