@@ -1,7 +1,7 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure
+package dudgns.com.backend.commons.infrastructure
 
 import io.kotest.matchers.ints.shouldBeZero
-import kr.co.hmcnetworks.backoffice.commons.infrastructure.config.test.UnitTest
+import dudgns.com.backend.commons.infrastructure.config.test.UnitTest
 import org.junit.jupiter.api.Test
 
 @UnitTest

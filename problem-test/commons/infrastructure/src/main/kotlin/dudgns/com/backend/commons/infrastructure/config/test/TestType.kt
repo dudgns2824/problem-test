@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.config.test
+package dudgns.com.backend.commons.infrastructure.config.test
 
 object TestType {
     const val UNIT_TEST = "UnitTest"

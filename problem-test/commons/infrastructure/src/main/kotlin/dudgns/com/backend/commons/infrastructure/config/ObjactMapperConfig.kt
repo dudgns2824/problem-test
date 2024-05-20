@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.config
+package dudgns.com.backend.commons.infrastructure.config
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper

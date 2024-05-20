@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.config.test
+package dudgns.com.backend.commons.infrastructure.config.test
 
 import org.junit.jupiter.api.Tag
 import org.springframework.boot.test.context.SpringBootTest

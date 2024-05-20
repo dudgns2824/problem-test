@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.core.util
+package dudgns.com.backend.commons.core.util
 
 /**
  * 제너릭 타입(enum 포함) 리스트의 객체에 접근하여 지정한 속성과 키이름으로 Map List 제작 가능 유틸

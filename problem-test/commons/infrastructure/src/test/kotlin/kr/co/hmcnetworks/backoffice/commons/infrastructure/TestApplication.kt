@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure
+package dudgns.com.backend.commons.infrastructure
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

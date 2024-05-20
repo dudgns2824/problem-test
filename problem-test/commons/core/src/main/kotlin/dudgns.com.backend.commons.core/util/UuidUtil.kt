@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.core.util
+package dudgns.com.backend.commons.core.util
 
 import java.util.*
 

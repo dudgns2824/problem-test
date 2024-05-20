@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.util
+package dudgns.com.backend.commons.infrastructure.util
 
 import org.springframework.security.core.context.SecurityContextHolder
 

@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.core.enumeration.admin
+package dudgns.com.backend.commons.core.enumeration.admin
 
 enum class AgentType {
     Ios,

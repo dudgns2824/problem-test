@@ -1,6 +1,6 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.config
+package  dudgns.com.backend.commons.infrastructure.config
 
-import kr.co.hmcnetworks.backoffice.commons.core.annotation.UseCase
+import dudgns.com.backend.commons.core.annotation.UseCase
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.FilterType
@@ -13,8 +13,7 @@ import org.springframework.context.annotation.FilterType
 @Configuration
 @ComponentScan(
     basePackages = [
-        "kr.co.hmcnetworks.backoffice.partnershipmgt.application",
-        "kr.co.hmcnetworks.backoffice.businessmgt.application",
+        "dudgns.com.backend.carmgt.application"
     ],
     includeFilters = [
         ComponentScan.Filter(

@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.exceptionhandler
+package dudgns.com.backend.commons.infrastructure.exceptionhandler
 
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.boot.autoconfigure.web.ServerProperties

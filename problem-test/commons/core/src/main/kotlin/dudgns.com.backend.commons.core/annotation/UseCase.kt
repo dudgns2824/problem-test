@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.commons.core.annotation
+package dudgns.com.backend.commons.core.annotation
 
 /** application layer 의 core service 부착용 */
 @Target(

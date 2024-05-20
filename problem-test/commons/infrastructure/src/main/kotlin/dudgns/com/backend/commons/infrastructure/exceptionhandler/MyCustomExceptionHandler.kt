@@ -1,9 +1,8 @@
-package kr.co.hmcnetworks.backoffice.commons.infrastructure.exceptionhandler
+package dudgns.com.backend.commons.infrastructure.exceptionhandler
 
 import jakarta.servlet.http.HttpServletRequest
-import kr.co.hmcnetworks.backoffice.commons.core.exception.BusinessException
-import kr.co.hmcnetworks.backoffice.commons.infrastructure.util.ApiResponse
-import kr.co.hmcnetworks.backoffice.commons.infrastructure.util.ResponseUtil
+import dudgns.com.backend.commons.infrastructure.util.ApiResponse
+import dudgns.com.backend.commons.infrastructure.util.ResponseUtil
 import org.springframework.core.NestedRuntimeException
 import org.springframework.expression.ExpressionException
 import org.springframework.http.HttpStatus
@@ -208,28 +207,5 @@ class MyCustomExceptionHandler {
         )
 
         return ResponseUtil.internalServerError(res)
-    }
-
-    @ExceptionHandler(
-        value = [
-            BusinessException::class,
-        ],
-    )
-    fun handleBusinessException(
-        request: HttpServletRequest,
-        e: Exception,
-    ): ResponseEntity<Any> {
-        println(e.stackTraceToString())
-
-        request.setAttribute("hmcnetworks.error.exception", e)
-
-        val res = ApiResponse.error(
-            code = HttpStatus.UNPROCESSABLE_ENTITY.value(),
-            message = "${HttpStatus.UNPROCESSABLE_ENTITY.reasonPhrase} / ${e.message} / ${e.cause} / ${e.javaClass}",
-            path = request.requestURI,
-            method = request.method,
-        )
-
-        return ResponseUtil.unprocessableEntity(res)
     }
 }
