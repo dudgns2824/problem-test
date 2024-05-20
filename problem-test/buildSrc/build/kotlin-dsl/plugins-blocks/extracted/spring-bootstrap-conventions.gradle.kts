@@ -1,0 +1,11 @@
+                                        
+                                  
+                                                             
+                                                        
+
+  
+                                                     
+   
+plugins {
+    id("spring-common-conventions")
+}
