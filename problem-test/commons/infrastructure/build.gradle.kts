@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":commons:core"))
+
     implementation(libs.bundles.commons.infrastructure)
     implementation(libs.bundles.test.junit)
 

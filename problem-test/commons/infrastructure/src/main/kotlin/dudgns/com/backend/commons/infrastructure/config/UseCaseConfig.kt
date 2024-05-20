@@ -1,4 +1,4 @@
-package  dudgns.com.backend.commons.infrastructure.config
+package dudgns.com.backend.commons.infrastructure.config
 
 import dudgns.com.backend.commons.core.annotation.UseCase
 import org.springframework.context.annotation.ComponentScan

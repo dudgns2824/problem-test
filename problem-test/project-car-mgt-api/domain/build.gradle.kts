@@ -6,6 +6,10 @@ plugins {
     kotlin("kapt")
 }
 
+dependencies {
+    implementation(project(":commons:core"))
+}
+
 allOpen {
     annotation("jakarta.persistence.Entity")
     annotation("jakarta.persistence.MappedSuperclass")
