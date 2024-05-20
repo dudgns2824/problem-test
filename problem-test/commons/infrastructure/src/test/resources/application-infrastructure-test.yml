@@ -1,0 +1,12 @@
+# dummy
+aop:
+  logging:
+    request:
+      pointcut: execution(* *(..))
+      bodyExcludeUri:
+        - /requestBodyEclude/test
+      customAttributes:
+        - roleLevel
+      uncachingContentType:
+        - application/x-www-form-urlencoded
+        - multipart/form-data
