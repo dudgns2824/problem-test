@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/commons" />
             <option value="$PROJECT_DIR$/commons/core" />
             <option value="$PROJECT_DIR$/commons/infrastructure" />
+            <option value="$PROJECT_DIR$/commons/project-dudgns-data-entity" />
             <option value="$PROJECT_DIR$/project-car-mgt-api" />
             <option value="$PROJECT_DIR$/project-car-mgt-api/adapter-data-jpa" />
             <option value="$PROJECT_DIR$/project-car-mgt-api/application" />

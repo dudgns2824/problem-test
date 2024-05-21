@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: adapter-data-jpa-local
+  datasource:
+    master:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: ${ci.db.master.url}
+      username: ${ci.db.master.username}
+      password: ${ci.db.master.password}
+  jpa:
+    open-in-view: false

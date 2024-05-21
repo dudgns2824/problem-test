@@ -6,7 +6,8 @@ rootProject.name = "backend"
 
 include(
     ":commons:infrastructure",
-    ":commons:core"
+    ":commons:core",
+    ":commons:project-dudgns-data-entity"
 )
 
 include(

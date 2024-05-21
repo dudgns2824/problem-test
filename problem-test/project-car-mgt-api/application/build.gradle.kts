@@ -6,6 +6,11 @@ plugins {
     kotlin("kapt")
 }
 
+dependencies {
+    implementation(project(":project-car-mgt-api:domain"))
+    implementation(project(":commons:core"))
+}
+
 allOpen {
     annotation("jakarta.persistence.Entity")
     annotation("jakarta.persistence.MappedSuperclass")

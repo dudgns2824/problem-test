@@ -72,9 +72,9 @@ commons-common = []
 commons-infrastructure = ["spring-boot-starter-web", "spring-security-core", "jackson-datatype-jdk8",
     "jackson-datatype-jsr310", "jackson-module-kotlin"]
 commons-infrastructure-test = []
-commons-project-carenation-data-entity = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "jakarta-validation-api"]
-commons-project-carenation-data-entity-kapt = ["spring-boot-configuration-processor"]
-commons-project-carenation-data-entity-test = []
+commons-project-dudgns-data-entity = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "jakarta-validation-api"]
+commons-project-dudgns-data-entity-kapt = ["spring-boot-configuration-processor"]
+commons-project-dudgns-data-entity-test = []
 
 # :project: car-mgt
 project-car-mgt-adapter-data-jpa = ["spring-boot-starter-data-jpa", "db-mysql-jpa", "jakarta-validation-api",
