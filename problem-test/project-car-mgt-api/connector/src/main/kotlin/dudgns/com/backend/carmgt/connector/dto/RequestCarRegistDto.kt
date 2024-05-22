@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class RequestCarRegistDto(
     @Schema(description = "카테고리 타입 목록")
     @JsonProperty(value = "category_type_list")
-    var categoryTypeList: List<Int>,
+    val categoryTypeList: List<Int>,
     @Schema(description = "제조사 코드 번호")
     @JsonProperty(value = "company_code")
     val companyCode: Long,
