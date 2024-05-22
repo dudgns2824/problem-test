@@ -86,7 +86,7 @@ class CarManagementController(
     fun carModify(@PathVariable("car_idx") carIdx: Long, @RequestBody req: RequestCarModifyDto): ResponseEntity<*> {
         try {
             val req = ModifyCarInfoCommand(
-                carIdx = req.carIdx,
+                carIdx = carIdx,
                 categoryTypeList = req.categoryTypeList,
                 companyCode = req.companyCode,
                 modelName = req.modelName,
@@ -101,8 +101,6 @@ class CarManagementController(
 
     @Schema(description = "자동차 등록 수정 dto")
     data class RequestCarModifyDto(
-        @Schema(description = "자동차 인덱스 번호") @JsonProperty(value = "car_idx")
-        val carIdx: Long,
         @Schema(description = "카테고리 타입 목록")
         @JsonProperty(value = "category_type_list")
         val categoryTypeList: List<Int>,

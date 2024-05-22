@@ -6,6 +6,7 @@ import jakarta.persistence.*
 @Table(name = "car")
 class CarEntity {
     @Id
+    @Column(name = "idx", insertable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var idx: Long? = null
 
