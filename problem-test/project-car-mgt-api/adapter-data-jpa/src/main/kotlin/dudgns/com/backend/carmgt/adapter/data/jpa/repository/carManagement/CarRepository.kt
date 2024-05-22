@@ -22,10 +22,10 @@ interface CarRepository : JpaRepository<CarEntity, Long> {
                 "                                AND ccm.carCategoryMappingId.categoryType IN (?5)))"
     )
     fun findAllBySearchValue(
-        companyCode: Int?,
+        companyCode: Long?,
         rentalYn: Boolean?,
         startYear: Int?,
         endYear: Int?,
-        categoryTypeList: List<Long?>?
+        categoryTypeList: List<Int?>?
     ): List<CarEntity?>?
 }

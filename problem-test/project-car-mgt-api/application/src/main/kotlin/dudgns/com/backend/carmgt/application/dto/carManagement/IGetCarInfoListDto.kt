@@ -1,9 +1,9 @@
 package dudgns.com.backend.carmgt.application.dto.carManagement
 
 interface IGetCarInfoListDto {
-    var companyCode: Int?
+    var companyCode: Long?
     var rentalYn: Boolean?
     var startYear: Int?
     var endYear: Int?
-    var categoryTypeList: List<Long?>?
+    var categoryTypeList: List<Int?>?
 }

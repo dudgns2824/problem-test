@@ -1,5 +1,7 @@
 package dudgns.com.backend.carmgt.adapter.data.jpa.repository.carManagement
 
+import com.querydsl.core.types.dsl.BooleanExpression
+import com.querydsl.jpa.JPAExpressions
 import dudgns.com.backend.carmgt.adapter.data.jpa.repository.BaseRepository
 import dudgns.com.backend.carmgt.application.dto.carManagement.GetCarInfoListQueryCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.ModifyCarInfoCommand
@@ -10,6 +12,7 @@ import dudgns.com.backend.carmgt.domain.model.carManagement.CarInfoModel
 import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryEntity
 import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryMappingEntity
 import dudgns.com.backend.commons.data.entity.problemTest.CarEntity
+import dudgns.com.backend.commons.data.entity.problemTest.QCarEntity.carEntity
 import dudgns.com.backend.commons.data.entity.problemTest.id.CarCategoryMappingId
 import org.springframework.stereotype.Repository
 
@@ -20,6 +23,19 @@ class CarEventListener(
     private val carCategoryRepository: CarCategoryRepository
 ) : BaseRepository(), ICarManagementQueryEventBus, ICarManagementCommandEventBus {
     override fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel> {
+        queryFactory
+            .selectFrom(carEntity)
+            .innerJoin(carEntity.carCategoryMappingEntityList).fetchJoin()
+            .where(
+                eqCompanyCode(req.companyCode!!),
+                eqRentalYn(req.rentalYn!!),
+                carEntity.carCategoryMappingEntityList.
+                any().carCategoryMappingId
+                    .categoryType.`in`(req.categoryTypeList)
+            )
+
+
+
         return carRepository.findAllBySearchValue(
             companyCode = req.companyCode,
             rentalYn = req.rentalYn,
@@ -92,5 +108,13 @@ class CarEventListener(
                 )
             }
         )
+    }
+
+    fun eqCompanyCode(companyCode: Long) : BooleanExpression {
+        return carEntity.companyCode.eq(companyCode)
+    }
+
+    fun eqRentalYn(rentalYn: Boolean) : BooleanExpression {
+        return carEntity.rentalYn.eq(rentalYn)
     }
 }

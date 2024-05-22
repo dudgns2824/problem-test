@@ -29,7 +29,7 @@ class CarManagementController(
     fun lookup(
         @RequestParam(value = "company_code", required = false) companyCode: Int?,
         @RequestParam(value = "rental_yn", required = false) rentalYn: Boolean?,
-        @RequestParam(value = "category_code_list", required = false) categoryCodeList: List<Long?>?,
+        @RequestParam(value = "category_code_list", required = false) categoryCodeList: List<Int?>?,
         @RequestParam(value = "start_year", required = false) startYear: Int?,
         @RequestParam(value = "end_year", required = false) endYear: Int?
     ): ResponseEntity<List<*>> {
