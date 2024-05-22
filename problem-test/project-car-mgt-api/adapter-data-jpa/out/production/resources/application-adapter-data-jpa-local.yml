@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: adapter-data-jpa-local
+  datasource:
+    master:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://localhost:3306/dudgns
+      username: dudgns
+      password: dudgns0258!
+  jpa:
+    open-in-view: false
