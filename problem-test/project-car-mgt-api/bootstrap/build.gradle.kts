@@ -7,24 +7,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":project-car-mgt-api:connector"))
     implementation(project(":project-car-mgt-api:adapter-data-jpa"))
+    implementation(project(":project-car-mgt-api:connector"))
     implementation(project(":project-car-mgt-api:connector"))
     implementation(project(":project-car-mgt-api:domain"))
 
     implementation(project(":commons:core"))
     implementation(project(":commons:infrastructure"))
+    implementation(project(":commons:project-dudgns-data-entity"))
 
     implementation(libs.bundles.project.car.mgt.bootstrap)
-}
-
-allOpen {
-    annotation("jakarta.persistence.Entity")
-    annotation("jakarta.persistence.MappedSuperclass")
-    annotation("jakarta.persistence.Embeddable")
-    annotation("org.springframework.stereotype.Repository")
-}
-
-noArg {
-    annotation("jakarta.persistence.Entity")
 }

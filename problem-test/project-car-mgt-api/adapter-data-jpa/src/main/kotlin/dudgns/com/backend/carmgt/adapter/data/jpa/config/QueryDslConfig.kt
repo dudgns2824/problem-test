@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.partnershipmgt.adapter.data.jpa.config
+package dudgns.com.backend.carmgt.adapter.data.jpa.config
 
 import com.querydsl.jpa.JPQLTemplates
 import com.querydsl.jpa.impl.JPAQueryFactory

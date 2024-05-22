@@ -1,4 +1,4 @@
-package kr.co.hmcnetworks.backoffice.partnershipmgt.adapter.data.jpa.config
+package dudgns.com.backend.carmgt.adapter.data.jpa.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Primary
@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Primary
 )
 @Primary
 data class DatabaseProperties(
-    val master: DataSourceProperty,
-    val slave: List<DataSourceProperty>,
+    val master: DataSourceProperty
 ) {
     data class DataSourceProperty(
         val driverClassName: String,

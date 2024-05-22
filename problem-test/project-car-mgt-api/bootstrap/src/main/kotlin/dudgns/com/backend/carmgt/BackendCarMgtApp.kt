@@ -10,7 +10,7 @@ import org.springframework.boot.runApplication
         "dudgns.com.backend.commons"
     ],
 )
-@EntityScan(basePackages = ["dudgns.com.backend.commons"])
+@EntityScan(basePackages = ["dudgns.com.backend.commons.data"])
 class BackendCarMgtApp
 
 fun main(args: Array<String>) {
