@@ -7,6 +7,4 @@ import dudgns.com.backend.carmgt.domain.model.carManagement.CarInfoModel
 
 interface ICarManagementQueryEventBus {
     fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel>
-    fun registCarInfo(req: RegistCarInfoCommand): Boolean
-    fun modifyCarInfo(req: ModifyCarInfoCommand): Boolean
 }

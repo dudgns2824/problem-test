@@ -4,6 +4,7 @@ import dudgns.com.backend.carmgt.adapter.data.jpa.repository.BaseRepository
 import dudgns.com.backend.carmgt.application.dto.carManagement.GetCarInfoListQueryCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.ModifyCarInfoCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.RegistCarInfoCommand
+import dudgns.com.backend.carmgt.application.servicebus.carManagement.out.ICarManagementCommandEventBus
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.out.ICarManagementQueryEventBus
 import dudgns.com.backend.carmgt.domain.model.carManagement.CarInfoModel
 import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryEntity
@@ -17,7 +18,7 @@ class CarEventListener(
     private val carRepository: CarRepository,
     private val carCategoryMappingRepository: CarCategoryMappingRepository,
     private val carCategoryRepository: CarCategoryRepository
-) : BaseRepository(), ICarManagementQueryEventBus {
+) : BaseRepository(), ICarManagementQueryEventBus, ICarManagementCommandEventBus {
     override fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel> {
         return carRepository.findAllBySearchValue(
             companyCode = req.companyCode,
