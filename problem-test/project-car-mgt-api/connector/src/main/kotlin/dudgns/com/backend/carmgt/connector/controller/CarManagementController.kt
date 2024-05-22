@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import dudgns.com.backend.carmgt.application.dto.carManagement.GetCarInfoListQueryCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.ModifyCarInfoCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.RegistCarInfoCommand
+import dudgns.com.backend.carmgt.application.servicebus.carManagement.`in`.ICarManagementCommandBus
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.`in`.ICarManagementQueryBus
 import dudgns.com.backend.carmgt.connector.dto.RequestCarModifyDto
 import dudgns.com.backend.carmgt.connector.dto.RequestCarRegistDto
@@ -20,7 +21,8 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/problemTest/carManagement")
 @Validated
 class CarManagementController(
-    private val carManagementQuery: ICarManagementQueryBus
+    private val carManagementQuery: ICarManagementQueryBus,
+    private val carManagementCommandBus : ICarManagementCommandBus
 ) {
     @GetMapping
     @Operation(summary = "자동차 조회 API", description = "자동차 조회 API 입니다.")
@@ -58,7 +60,7 @@ class CarManagementController(
                 createdYear = req.createdYear,
                 rentalYn = req.rentalYn
             )
-            return ResponseEntity.ok(carManagementQuery.registCarInfo(req))
+            return ResponseEntity.ok(carManagementCommandBus.registCarInfo(req))
         } catch (e: Exception) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null)
         }
@@ -78,7 +80,7 @@ class CarManagementController(
                 createdYear = req.createdYear,
                 rentalYn = req.rentalYn
             )
-            return ResponseEntity.ok(carManagementQuery.modifyCarInfo(req))
+            return ResponseEntity.ok(carManagementCommandBus.modifyCarInfo(req))
         } catch (e: Exception) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null)
         }
