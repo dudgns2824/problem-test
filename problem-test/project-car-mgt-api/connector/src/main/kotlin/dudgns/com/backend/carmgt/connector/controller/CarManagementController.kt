@@ -27,7 +27,7 @@ class CarManagementController(
     @GetMapping
     @Operation(summary = "자동차 조회 API", description = "자동차 조회 API 입니다.")
     fun lookup(
-        @RequestParam(value = "company_code", required = false) companyCode: Int?,
+        @RequestParam(value = "company_code", required = false) companyCode: Long?,
         @RequestParam(value = "rental_yn", required = false) rentalYn: Boolean?,
         @RequestParam(value = "category_code_list", required = false) categoryCodeList: List<Int?>?,
         @RequestParam(value = "start_year", required = false) startYear: Int?,
