@@ -93,7 +93,7 @@ class CarManagementController(
                 createdYear = req.createdYear,
                 rentalYn = req.rentalYn
             )
-            return ResponseEntity.ok(carManagementQuery.modfiyCarInfo(req))
+            return ResponseEntity.ok(carManagementQuery.modifyCarInfo(req))
         } catch (e: Exception) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null)
         }

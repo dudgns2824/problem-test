@@ -20,7 +20,7 @@ class CarManagementService(
         return carManagementQueryEventBus.registCarInfo(req)
     }
 
-    override fun modfiyCarInfo(req: ModifyCarInfoCommand): Boolean {
+    override fun modifyCarInfo(req: ModifyCarInfoCommand): Boolean {
         return carManagementQueryEventBus.modifyCarInfo(req)
     }
 }

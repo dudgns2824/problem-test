@@ -4,221 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c919abc-7085-484c-bb32-999fa112c871" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_산출물_001(스웨거 캡처 해당 api에도 스웨거 적용 되어있음).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_산출물_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_산출물_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_산출물_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/8.4/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/modules/auth.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/modules/backend-auth.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/AuthApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/common/EmailSendService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/common/UuidStringUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/common/object/SendEmailObjectDto$SendEmailObjectDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/common/object/SendEmailObjectDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/database/QuerydslConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/database/RedisConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/security/CustomUserDetailsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/security/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/security/JwtTokenProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/security/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/security/SecurityUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/config/swagger/SwaggerDocConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/dto/BaseRepsonseDto$BaseRepsonseDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/dto/BaseRepsonseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/dto/RequestMailDto$RequestMailDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/dto/RequestMailDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/QUserEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/QUserTokenEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/UserEntity$UserEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/UserEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/UserTokenEntity$UserTokenEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/UserTokenEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/id/QUserTokenId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/id/UserTokenId$UserTokenIdBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/id/UserTokenId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/redis/AccessTokenEntity$AccessTokenEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/redis/AccessTokenEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/redis/MailRequestEntity$MailRequestEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/entity/redis/MailRequestEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/enums/RolesEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/enums/VerifyType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/AbnormalTokenException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/EmailAlreadyExistsException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/EmailVerifyFailedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/EmailVerifyMaxRequestException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/EmailVerifyMaxRequestPerTimeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/LoginFailedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/NotVerifiedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/PasswordNotEnteredException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/exception/PasswordRuleException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/mail/controller/MailController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/mail/dto/ResponseMailVerifyDto$ResponseMailVerifyDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/mail/dto/ResponseMailVerifyDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/mail/dto/ResponseVerifyDto$ResponseVerifyDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/mail/dto/ResponseVerifyDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/mail/service/MailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/repository/UserTokenRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/repository/redis/AccessTokenRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/repository/redis/MailRequestRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/RequestCreateUserDto$RequestCreateUserDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/RequestCreateUserDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/RequestUserTokenDto$RequestUserTokenDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/RequestUserTokenDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/ResponseCreateUserDto$ResponseCreateUserDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/ResponseCreateUserDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/ResponseUserLoginDto$ResponseUserLoginDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/ResponseUserLoginDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/UserLoginDto$UserLoginDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/UserLoginDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/UserTokenDto$UserTokenDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/dto/UserTokenDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/problemTest/auth/user/support/UserRepositorySupport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/generated/sources/annotationProcessor/java/main/com/problemTest/auth/entity/QUserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/generated/sources/annotationProcessor/java/main/com/problemTest/auth/entity/QUserTokenEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/generated/sources/annotationProcessor/java/main/com/problemTest/auth/entity/id/QUserTokenId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/resources/main/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/tmp/compileJava/compileTransaction/stash-dir/UserController.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/AuthApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/common/EmailSendService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/common/UuidStringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/common/object/SendEmailObjectDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/database/QuerydslConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/database/RedisConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/security/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/security/JwtTokenProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/security/SecurityUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/config/swagger/SwaggerDocConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/dto/BaseRepsonseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/dto/RequestMailDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/entity/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/entity/UserTokenEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/entity/id/UserTokenId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/entity/redis/AccessTokenEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/entity/redis/MailRequestEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/enums/RolesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/enums/VerifyType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/AbnormalTokenException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/EmailAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/EmailVerifyFailedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/EmailVerifyMaxRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/EmailVerifyMaxRequestPerTimeException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/LoginFailedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/NotVerifiedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/PasswordNotEnteredException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/exception/PasswordRuleException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/mail/controller/MailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/mail/dto/ResponseMailVerifyDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/mail/dto/ResponseVerifyDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/mail/service/MailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/repository/UserTokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/repository/redis/AccessTokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/repository/redis/MailRequestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/dto/RequestCreateUserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/dto/RequestUserTokenDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/dto/ResponseCreateUserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/dto/ResponseUserLoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/dto/UserLoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/dto/UserTokenDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/problemTest/auth/user/support/UserRepositorySupport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/test/java/com/dudgns/backendauth/BackendAuthApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/ProblemtestApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/carManagement/controller/CarManagementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/carManagement/dto/RequestCarManagementModifyDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/carManagement/dto/RequestCarManagementRegistDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/carManagement/dto/ResponseCarManagementDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/carManagement/dto/ResponseCarManagementListDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/carManagement/service/CarManagementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/common/UuidStringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/database/AuthDatasourceConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/database/CarManagementDatasourceConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/database/QuerydslConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/security/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/security/JwtTokenProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/security/SecurityUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/config/swagger/SwaggerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/dto/BaseRepsonseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/dto/RequestMailDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/auth/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/auth/UserTokenEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/carManagement/CarCategoryEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/carManagement/CarCategoryMappingEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/carManagement/CarEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/carManagement/CompanyEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/id/CarCategoryMappingId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/id/UserTokenId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/entity/redis/AccessTokenEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/enums/RolesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/enums/VerifyType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/exception/AbnormalTokenException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/exception/UserNotExistException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/auth/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/auth/UserTokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/carManagement/CarCategoryMappingRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/carManagement/CarCategoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/carManagement/CarRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/carManagement/CompanyRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/java/com/dudgns/problemtest/repository/redis/AccessTokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem-test/src/test/java/com/dudgns/problemtest/ProblemtestApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/통신 플로우.md" beforeDir="false" />
-    </list>
+    <list default="true" id="3c919abc-7085-484c-bb32-999fa112c871" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -261,29 +47,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/케어네이션/Desktop/problem-test/buildSrc/src/main/kotlin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/케어네이션/Desktop/problem-test/problem-test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.15429688",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;kotlin-gradle-user-dirs&quot;: [
-      &quot;C:\\Users\\케어네이션\\.gradle&quot;
+  "keyToStringList": {
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\케어네이션\\.gradle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\케어네이션\Desktop\problem-test\buildSrc\src\main\kotlin" />
@@ -329,6 +115,7 @@
       <workItem from="1716194537358" duration="183000" />
       <workItem from="1716194732367" duration="466000" />
       <workItem from="1716195212622" duration="66000" />
+      <workItem from="1716357484909" duration="8000" />
     </task>
     <servers />
   </component>

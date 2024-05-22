@@ -7,5 +7,5 @@ import dudgns.com.backend.carmgt.application.dto.carManagement.RegistCarInfoComm
 interface ICarManagementQueryBus {
     fun getCarInfo(req: GetCarInfoListQueryCommand): List<*>
     fun registCarInfo(req: RegistCarInfoCommand): Boolean
-    fun modfiyCarInfo(req: ModifyCarInfoCommand): Boolean
+    fun modifyCarInfo(req: ModifyCarInfoCommand): Boolean
 }
