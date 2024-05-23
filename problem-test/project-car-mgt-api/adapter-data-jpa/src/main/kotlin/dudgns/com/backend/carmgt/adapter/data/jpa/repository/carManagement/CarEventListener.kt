@@ -23,42 +23,52 @@ class CarEventListener(
     private val carCategoryRepository: CarCategoryRepository
 ) : BaseRepository(), ICarManagementQueryEventBus, ICarManagementCommandEventBus {
     override fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel> {
-        queryFactory
+        return queryFactory
             .selectFrom(carEntity)
             .innerJoin(carEntity.carCategoryMappingEntityList).fetchJoin()
+            .leftJoin(carEntity.companyEntity).fetchJoin()
             .where(
-                eqCompanyCode(req.companyCode!!),
-                eqRentalYn(req.rentalYn!!),
-                carEntity.carCategoryMappingEntityList.
-                any().carCategoryMappingId
-                    .categoryType.`in`(req.categoryTypeList)
-            )
-
-
-
-        return carRepository.findAllBySearchValue(
+                eqCompanyCode(req.companyCode),
+                eqRentalYn(req.rentalYn),
+                goeCreatedYear(req.startYear),
+                loeCreatedYear(req.endYear),
+                inCategoryType(req.categoryTypeList)
+            ).fetch()!!.map { carEntity ->
+                CarInfoModel(
+                    modelName = carEntity?.modelName,
+                    carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName },
+                    company = carEntity?.companyEntity?.companyName,
+                    createdYear = carEntity?.createdYear,
+                    rentalYn = carEntity?.rentalYn
+                )
+            }
+        /*carRepository.findAllBySearchValue(
             companyCode = req.companyCode,
             rentalYn = req.rentalYn,
             startYear = req.startYear,
             endYear = req.endYear,
             categoryTypeList = req.categoryTypeList
-        )!!.map { carEntity -> CarInfoModel(
-            modelName = carEntity?.modelName,
-            carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName },
-            company = carEntity?.companyEntity?.companyName,
-            createdYear = carEntity?.createdYear,
-            rentalYn = carEntity?.rentalYn
-        )}
+        )!!.map { carEntity ->
+            CarInfoModel(
+                modelName = carEntity?.modelName,
+                carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName },
+                company = carEntity?.companyEntity?.companyName,
+                createdYear = carEntity?.createdYear,
+                rentalYn = carEntity?.rentalYn
+            )
+        }*/
     }
 
     override fun registCarInfo(req: RegistCarInfoCommand): Boolean {
-        val carEntity = carRepository.save(CarEntity(
-            idx = null,
-            companyCode = req.companyCode,
-            modelName = req.modelName,
-            createdYear = req.createdYear,
-            rentalYn = req.rentalYn
-        ))
+        val carEntity = carRepository.save(
+            CarEntity(
+                idx = null,
+                companyCode = req.companyCode,
+                modelName = req.modelName,
+                createdYear = req.createdYear,
+                rentalYn = req.rentalYn
+            )
+        )
 
         val categoryEntityList = getCarCategoryListByCategoryType(req.categoryTypeList)
 
@@ -110,11 +120,34 @@ class CarEventListener(
         )
     }
 
-    fun eqCompanyCode(companyCode: Long) : BooleanExpression {
-        return carEntity.companyCode.eq(companyCode)
+    fun eqCompanyCode(companyCode: Long?): BooleanExpression? {
+        return if (companyCode != null) {
+            carEntity.companyCode.eq(companyCode)
+        } else null
     }
 
-    fun eqRentalYn(rentalYn: Boolean) : BooleanExpression {
-        return carEntity.rentalYn.eq(rentalYn)
+    fun eqRentalYn(rentalYn: Boolean?): BooleanExpression? {
+        return if (rentalYn != null) {
+            carEntity.rentalYn.eq(rentalYn)
+        } else null
+    }
+
+    fun goeCreatedYear(year: Int?): BooleanExpression? {
+        return if (year != null) {
+            carEntity.createdYear.goe(year)
+        } else null
+    }
+
+    fun loeCreatedYear(year: Int?): BooleanExpression? {
+        return if (year != null) {
+            carEntity.createdYear.loe(year)
+        } else null
+    }
+
+    fun inCategoryType(categoryTypeList: List<Int?>?): BooleanExpression? {
+        return if (categoryTypeList != null && categoryTypeList.size > 0) {
+            carEntity.carCategoryMappingEntityList.any().carCategoryMappingId
+                .categoryType.`in`(categoryTypeList)
+        } else null
     }
 }
