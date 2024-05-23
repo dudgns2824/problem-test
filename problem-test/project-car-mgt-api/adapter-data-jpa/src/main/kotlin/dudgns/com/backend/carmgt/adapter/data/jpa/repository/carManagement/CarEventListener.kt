@@ -41,7 +41,7 @@ class CarEventListener(
             ).fetch()!!.map { carEntity ->
                 CarInfoModel(
                     modelName = carEntity?.modelName,
-                    carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName }, // 이 부분을 Projections.constructor 처리 가능 하면 map 함수 안써도 됨. 
+                    carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName }, // 이 부분을 Projections.constructor 처리 가능 하면 map 함수 안써도 됨.
                     company = carEntity?.companyEntity?.companyName,
                     createdYear = carEntity?.createdYear,
                     rentalYn = carEntity?.rentalYn
@@ -111,33 +111,28 @@ class CarEventListener(
     }
 
     fun eqCompanyCode(companyCode: Long?): BooleanExpression? {
-        return if (companyCode != null) {
-            carEntity.companyCode.eq(companyCode)
-        } else null
+        return if (companyCode != null) carEntity.companyCode.eq(companyCode)
+        else null
     }
 
     fun eqRentalYn(rentalYn: Boolean?): BooleanExpression? {
-        return if (rentalYn != null) {
-            carEntity.rentalYn.eq(rentalYn)
-        } else null
+        return if (rentalYn != null) carEntity.rentalYn.eq(rentalYn)
+        else null
     }
 
     fun goeCreatedYear(year: Int?): BooleanExpression? {
-        return if (year != null) {
-            carEntity.createdYear.goe(year)
-        } else null
+        return if (year != null) carEntity.createdYear.goe(year)
+        else null
     }
 
     fun loeCreatedYear(year: Int?): BooleanExpression? {
-        return if (year != null) {
-            carEntity.createdYear.loe(year)
-        } else null
+        return if (year != null) carEntity.createdYear.loe(year)
+        else null
     }
 
     fun inCategoryType(categoryTypeList: List<Int?>?): BooleanExpression? {
-        return if (categoryTypeList != null && categoryTypeList.size > 0) {
-            carEntity.carCategoryMappingEntityList.any().carCategoryMappingId
-                .categoryType.`in`(categoryTypeList)
-        } else null
+        return if (categoryTypeList != null && categoryTypeList.size > 0)
+            carEntity.carCategoryMappingEntityList.any().carCategoryMappingId.categoryType.`in`(categoryTypeList)
+        else null
     }
 }
