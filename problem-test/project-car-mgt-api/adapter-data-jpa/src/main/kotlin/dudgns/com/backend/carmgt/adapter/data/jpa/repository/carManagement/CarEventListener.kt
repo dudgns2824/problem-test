@@ -23,6 +23,11 @@ class CarEventListener(
     private val carCategoryRepository: CarCategoryRepository
 ) : BaseRepository(), ICarManagementQueryEventBus, ICarManagementCommandEventBus {
     override fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel> {
+        /*
+        * Projections.constructor 사용 하려 했으나 그 부분에서
+        * 1:다 연관관계 매핑 entity를 n+1방지 위해 fetchJoin후 select하고 해당 entity에 있는
+        * 카테고리 List<String>을 가져오는 방법을 잘 모르겠음.
+        * */
         return queryFactory
             .selectFrom(carEntity)
             .innerJoin(carEntity.carCategoryMappingEntityList).fetchJoin()
@@ -42,21 +47,6 @@ class CarEventListener(
                     rentalYn = carEntity?.rentalYn
                 )
             }
-        /*carRepository.findAllBySearchValue(
-            companyCode = req.companyCode,
-            rentalYn = req.rentalYn,
-            startYear = req.startYear,
-            endYear = req.endYear,
-            categoryTypeList = req.categoryTypeList
-        )!!.map { carEntity ->
-            CarInfoModel(
-                modelName = carEntity?.modelName,
-                carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName },
-                company = carEntity?.companyEntity?.companyName,
-                createdYear = carEntity?.createdYear,
-                rentalYn = carEntity?.rentalYn
-            )
-        }*/
     }
 
     override fun registCarInfo(req: RegistCarInfoCommand): Boolean {
