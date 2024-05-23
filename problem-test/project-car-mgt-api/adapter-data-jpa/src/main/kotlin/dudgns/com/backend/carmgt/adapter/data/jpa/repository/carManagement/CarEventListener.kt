@@ -1,6 +1,10 @@
 package dudgns.com.backend.carmgt.adapter.data.jpa.repository.carManagement
 
+import com.mysql.cj.x.protobuf.MysqlxCrud.Projection
+import com.querydsl.core.group.GroupBy
+import com.querydsl.core.types.Projections
 import com.querydsl.core.types.dsl.BooleanExpression
+import com.querydsl.core.group.GroupBy.*
 import com.querydsl.jpa.JPAExpressions
 import dudgns.com.backend.carmgt.adapter.data.jpa.repository.BaseRepository
 import dudgns.com.backend.carmgt.application.dto.carManagement.GetCarInfoListQueryCommand
@@ -23,30 +27,26 @@ class CarEventListener(
     private val carCategoryRepository: CarCategoryRepository
 ) : BaseRepository(), ICarManagementQueryEventBus, ICarManagementCommandEventBus {
     override fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel> {
-        /*
-        * Projections.constructor 사용 하려 했으나 그 부분에서
-        * 1:다 연관관계 매핑 entity를 n+1방지 위해 fetchJoin후 select하고 해당 entity에 있는
-        * 카테고리 List<String>을 가져오는 방법을 잘 모르겠음.
-        * */
         return queryFactory
-            .selectFrom(carEntity)
-            .innerJoin(carEntity.carCategoryMappingEntityList).fetchJoin()
-            .leftJoin(carEntity.companyEntity).fetchJoin()
+            .from(carEntity)
             .where(
                 eqCompanyCode(req.companyCode),
                 eqRentalYn(req.rentalYn),
                 goeCreatedYear(req.startYear),
                 loeCreatedYear(req.endYear),
                 inCategoryType(req.categoryTypeList)
-            ).fetch()!!.map { carEntity ->
-                CarInfoModel(
-                    modelName = carEntity?.modelName,
-                    carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName }, // 이 부분을 Projections.constructor 처리 가능 하면 map 함수 안써도 됨.
-                    company = carEntity?.companyEntity?.companyName,
-                    createdYear = carEntity?.createdYear,
-                    rentalYn = carEntity?.rentalYn
+            ).transform(
+                groupBy(carEntity.idx).list(
+                    Projections.constructor(
+                        CarInfoModel::class.java,
+                        carEntity.modelName,
+                        list(carEntity.carCategoryMappingEntityList.any().categoryName),
+                        carEntity.companyEntity.companyName,
+                        carEntity.createdYear,
+                        carEntity.rentalYn
+                    )
                 )
-            }
+            )
     }
 
     override fun registCarInfo(req: RegistCarInfoCommand): Boolean {
