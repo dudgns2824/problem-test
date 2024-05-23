@@ -41,7 +41,7 @@ class CarEventListener(
             ).fetch()!!.map { carEntity ->
                 CarInfoModel(
                     modelName = carEntity?.modelName,
-                    carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName },
+                    carCategory = carEntity?.carCategoryMappingEntityList?.map { category -> category.categoryName }, // 이 부분을 Projections.constructor 처리 가능 하면 map 함수 안써도 됨. 
                     company = carEntity?.companyEntity?.companyName,
                     createdYear = carEntity?.createdYear,
                     rentalYn = carEntity?.rentalYn
