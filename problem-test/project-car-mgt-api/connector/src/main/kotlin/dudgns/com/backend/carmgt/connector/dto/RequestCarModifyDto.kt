@@ -1,12 +1,16 @@
 package dudgns.com.backend.carmgt.connector.dto
 
-import com.fasterxml.jackson.annotation.JsonProperty
-import io.swagger.v3.oas.annotations.media.Schema
+import org.jetbrains.annotations.NotNull
 
 data class RequestCarModifyDto(
+    @NotNull
     val categoryTypeList: List<Int>,
+    @NotNull
     val companyCode: Long,
+    @NotNull
     val modelName: String,
+    @NotNull
     val createdYear: Int,
+    @NotNull
     val rentalYn: Boolean
 )
