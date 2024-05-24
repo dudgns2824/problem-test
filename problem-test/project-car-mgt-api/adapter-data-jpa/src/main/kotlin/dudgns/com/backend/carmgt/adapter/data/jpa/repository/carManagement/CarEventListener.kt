@@ -12,6 +12,7 @@ import dudgns.com.backend.carmgt.application.dto.carManagement.ModifyCarInfoComm
 import dudgns.com.backend.carmgt.application.dto.carManagement.RegistCarInfoCommand
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.out.ICarManagementCommandEventBus
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.out.ICarManagementQueryEventBus
+import dudgns.com.backend.carmgt.domain.common.message.ResultMessage
 import dudgns.com.backend.carmgt.domain.model.carManagement.CarInfoModel
 import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryEntity
 import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryMappingEntity
@@ -47,6 +48,14 @@ class CarEventListener(
                     )
                 )
             )
+    }
+
+    override fun checkByCarId(carIdx: Long): ResultMessage {
+        val isCarExist = carRepository.findById(carIdx).isPresent
+
+        val message = if (!isCarExist) "존재 하지 않는 자동차 id 입니다." else ""
+
+        return ResultMessage(isSuccess = isCarExist, message = message)
     }
 
     override fun registCarInfo(req: RegistCarInfoCommand): Boolean {

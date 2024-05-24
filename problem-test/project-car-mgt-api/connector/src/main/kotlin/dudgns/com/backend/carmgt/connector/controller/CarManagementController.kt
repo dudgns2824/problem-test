@@ -1,16 +1,20 @@
 package dudgns.com.backend.carmgt.connector.controller
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import dudgns.com.backend.carmgt.application.dto.carManagement.GetCarInfoListQueryCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.ModifyCarInfoCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.RegistCarInfoCommand
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.`in`.ICarManagementCommandBus
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.`in`.ICarManagementQueryBus
+import dudgns.com.backend.carmgt.connector.annotation.docs.carManagement.v1.CarManagementLookupApiDocs
+import dudgns.com.backend.carmgt.connector.annotation.docs.carManagement.v1.CarManagementModifyDocs
+import dudgns.com.backend.carmgt.connector.annotation.docs.carManagement.v1.CarManagementRegistDocs
+import dudgns.com.backend.carmgt.connector.annotation.docs.carManagement.v1.validation.CheckCarIdx
+import dudgns.com.backend.carmgt.connector.dto.CarManagementSearchCondRequest
 import dudgns.com.backend.carmgt.connector.dto.RequestCarModifyDto
 import dudgns.com.backend.carmgt.connector.dto.RequestCarRegistDto
-import io.swagger.v3.oas.annotations.Operation
-import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.tags.Tag
+import jakarta.validation.Valid
+import org.springdoc.core.annotations.ParameterObject
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
@@ -22,24 +26,20 @@ import org.springframework.web.bind.annotation.*
 @Validated
 class CarManagementController(
     private val carManagementQuery: ICarManagementQueryBus,
-    private val carManagementCommandBus : ICarManagementCommandBus
+    private val carManagementCommandBus: ICarManagementCommandBus
 ) {
     @GetMapping
-    @Operation(summary = "자동차 조회 API", description = "자동차 조회 API 입니다.")
+    @CarManagementLookupApiDocs
     fun lookup(
-        @RequestParam(value = "company_code", required = false) companyCode: Long?,
-        @RequestParam(value = "rental_yn", required = false) rentalYn: Boolean?,
-        @RequestParam(value = "category_code_list", required = false) categoryCodeList: List<Int?>?,
-        @RequestParam(value = "start_year", required = false) startYear: Int?,
-        @RequestParam(value = "end_year", required = false) endYear: Int?
+        @ParameterObject @ModelAttribute carManagementSearchCondRequest: CarManagementSearchCondRequest
     ): ResponseEntity<List<*>> {
         try {
             val req = GetCarInfoListQueryCommand(
-                companyCode = companyCode,
-                rentalYn = rentalYn,
-                categoryTypeList = categoryCodeList,
-                startYear = startYear,
-                endYear = endYear
+                companyCode = carManagementSearchCondRequest.companyCode,
+                rentalYn = carManagementSearchCondRequest.rentalYn,
+                categoryTypeList = carManagementSearchCondRequest.categoryCodeList,
+                startYear = carManagementSearchCondRequest.startYear,
+                endYear = carManagementSearchCondRequest.endYear
             )
             return ResponseEntity.ok(carManagementQuery.getCarInfo(req))
         } catch (e: Exception) {
@@ -50,8 +50,8 @@ class CarManagementController(
     }
 
     @PostMapping
-    @Operation(summary = "자동차 등록 API", description = "자동차 등록 API 입니다.")
-    fun carRegist(@RequestBody req: RequestCarRegistDto): ResponseEntity<*> {
+    @CarManagementRegistDocs
+    fun carRegist(@Valid @RequestBody req: RequestCarRegistDto): ResponseEntity<*> {
         try {
             val req = RegistCarInfoCommand(
                 categoryTypeList = req.categoryTypeList,
@@ -67,10 +67,12 @@ class CarManagementController(
     }
 
 
-    @PutMapping("/{car_idx}")
-    @Operation(summary = "자동차 수정 API", description = "자동차 수정 API 입니다.")
-    fun carModify(@PathVariable("car_idx") carIdx: Long,
-                  @RequestBody req: RequestCarModifyDto): ResponseEntity<*> {
+    @PutMapping("/{carIdx}")
+    @CarManagementModifyDocs
+    fun carModify(
+        @CheckCarIdx @PathVariable carIdx: Long,
+        @Valid @RequestBody req: RequestCarModifyDto
+    ): ResponseEntity<*> {
         try {
             val req = ModifyCarInfoCommand(
                 carIdx = carIdx,
