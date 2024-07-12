@@ -67,7 +67,7 @@ class CarManagementController(
     }
 
 
-    @PutMapping("/{carIdx}")
+    @PutMapping("/{car_idx}")
     @CarManagementModifyDocs
     fun carModify(
         @CheckCarIdx @PathVariable carIdx: Long,

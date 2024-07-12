@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.BooleanExpression
 import com.querydsl.core.group.GroupBy.*
 import com.querydsl.jpa.JPAExpressions
 import dudgns.com.backend.carmgt.adapter.data.jpa.repository.BaseRepository
+import dudgns.com.backend.carmgt.adapter.data.jpa.util.carManagement.CarManagementRepositoryUtil
 import dudgns.com.backend.carmgt.application.dto.carManagement.GetCarInfoListQueryCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.ModifyCarInfoCommand
 import dudgns.com.backend.carmgt.application.dto.carManagement.RegistCarInfoCommand
@@ -25,17 +26,42 @@ import org.springframework.stereotype.Repository
 class CarEventListener(
     private val carRepository: CarRepository,
     private val carCategoryMappingRepository: CarCategoryMappingRepository,
-    private val carCategoryRepository: CarCategoryRepository
+    private val carCategoryRepository: CarCategoryRepository,
+    private val carManagementRepositoryUtil: CarManagementRepositoryUtil,
 ) : BaseRepository(), ICarManagementQueryEventBus, ICarManagementCommandEventBus {
+    fun getCarCategoryListByCategoryType(categoryType: List<Int?>): List<CarCategoryEntity> {
+        return if (categoryType.isNotEmpty()) carCategoryRepository
+            .findAll()
+            .stream()
+            .filter { carCategory -> categoryType.contains(carCategory.categoryType) }
+            .toList() else ArrayList()
+    }
+
+    fun saveCarCategoryMappingByCarCategory(carEntity: CarEntity, categoryEntityList: List<CarCategoryEntity>) {
+        carCategoryMappingRepository.saveAll(
+            categoryEntityList.map { carCategoryEntity ->
+                val carCategoryMappingId = CarCategoryMappingId()
+                carCategoryMappingId.carIdx = carEntity.idx
+                carCategoryMappingId.categoryType = carCategoryEntity.categoryType
+
+                CarCategoryMappingEntity(
+                    carCategoryMappingId = carCategoryMappingId,
+                    categoryName = carCategoryEntity.categoryName
+                )
+            }
+        )
+    }
+
+
     override fun getCarInfo(req: GetCarInfoListQueryCommand): List<CarInfoModel> {
         return queryFactory
             .from(carEntity)
             .where(
-                eqCompanyCode(req.companyCode),
-                eqRentalYn(req.rentalYn),
-                goeCreatedYear(req.startYear),
-                loeCreatedYear(req.endYear),
-                inCategoryType(req.categoryTypeList)
+                carManagementRepositoryUtil.eqCompanyCode(req.companyCode),
+                carManagementRepositoryUtil.eqRentalYn(req.rentalYn),
+                carManagementRepositoryUtil.goeCreatedYear(req.startYear),
+                carManagementRepositoryUtil.loeCreatedYear(req.endYear),
+                carManagementRepositoryUtil.inCategoryType(req.categoryTypeList)
             ).transform(
                 groupBy(carEntity.idx).list(
                     Projections.constructor(
@@ -96,52 +122,4 @@ class CarEventListener(
         return true
     }
 
-    fun getCarCategoryListByCategoryType(categoryType: List<Int?>): List<CarCategoryEntity> {
-        return if (categoryType.isNotEmpty()) carCategoryRepository
-            .findAll()
-            .stream()
-            .filter { carCategory -> categoryType.contains(carCategory.categoryType) }
-            .toList() else ArrayList<CarCategoryEntity>()
-    }
-
-    fun saveCarCategoryMappingByCarCategory(carEntity: CarEntity, categoryEntityList: List<CarCategoryEntity>) {
-        carCategoryMappingRepository.saveAll(
-            categoryEntityList.map { carCategoryEntity ->
-                val carCategoryMappingId = CarCategoryMappingId()
-                carCategoryMappingId.carIdx = carEntity.idx
-                carCategoryMappingId.categoryType = carCategoryEntity.categoryType
-
-                CarCategoryMappingEntity(
-                    carCategoryMappingId = carCategoryMappingId,
-                    categoryName = carCategoryEntity.categoryName
-                )
-            }
-        )
-    }
-
-    fun eqCompanyCode(companyCode: Long?): BooleanExpression? {
-        return if (companyCode != null) carEntity.companyCode.eq(companyCode)
-        else null
-    }
-
-    fun eqRentalYn(rentalYn: Boolean?): BooleanExpression? {
-        return if (rentalYn != null) carEntity.rentalYn.eq(rentalYn)
-        else null
-    }
-
-    fun goeCreatedYear(year: Int?): BooleanExpression? {
-        return if (year != null) carEntity.createdYear.goe(year)
-        else null
-    }
-
-    fun loeCreatedYear(year: Int?): BooleanExpression? {
-        return if (year != null) carEntity.createdYear.loe(year)
-        else null
-    }
-
-    fun inCategoryType(categoryTypeList: List<Int?>?): BooleanExpression? {
-        return if (categoryTypeList != null && categoryTypeList.size > 0)
-            carEntity.carCategoryMappingEntityList.any().carCategoryMappingId.categoryType.`in`(categoryTypeList)
-        else null
-    }
 }
