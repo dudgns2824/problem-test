@@ -1,4 +1,4 @@
-코틀린으로 리팩토링 한 버전은 kotlin-Refactoring 브런치 참조
+코틀린으로 리팩토링 한 버전은 kotlin-refactoring 브런치 참조
 
 백엔드 개발 사전 과제
 
