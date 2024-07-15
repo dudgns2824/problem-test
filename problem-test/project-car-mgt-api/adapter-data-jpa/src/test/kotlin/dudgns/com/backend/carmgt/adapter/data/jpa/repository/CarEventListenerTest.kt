@@ -55,7 +55,7 @@ class CarEventListenerTest(
 
         val isSuccess = carEventListener.modifyCarInfo(dto)
 
-        assertTrue { true }
+        assertTrue { isSuccess }
     }
 
     @Test
@@ -72,6 +72,6 @@ class CarEventListenerTest(
 
         val isSuccess = carEventListener.registCarInfo(dto)
 
-        assertTrue { true }
+        assertTrue { isSuccess }
     }
 }
