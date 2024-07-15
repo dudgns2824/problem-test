@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/project-car-mgt-api/adapter-data-jpa/backend.project-car-mgt-api.adapter-data-jpa.test.iml" filepath="$PROJECT_DIR$/.idea/modules/project-car-mgt-api/adapter-data-jpa/backend.project-car-mgt-api.adapter-data-jpa.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/project-car-mgt-api/connector/backend.project-car-mgt-api.connector.test.iml" filepath="$PROJECT_DIR$/.idea/modules/project-car-mgt-api/connector/backend.project-car-mgt-api.connector.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/project-car-mgt-api/domain/backend.project-car-mgt-api.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/project-car-mgt-api/domain/backend.project-car-mgt-api.domain.main.iml" />
     </modules>

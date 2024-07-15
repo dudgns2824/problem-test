@@ -14,7 +14,6 @@ import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryEntity
 import dudgns.com.backend.commons.data.entity.problemTest.CarCategoryMappingEntity
 import dudgns.com.backend.commons.data.entity.problemTest.CarEntity
 import dudgns.com.backend.commons.data.entity.problemTest.QCarEntity.carEntity
-import dudgns.com.backend.commons.data.entity.problemTest.QCompanyEntity.companyEntity
 import dudgns.com.backend.commons.data.entity.problemTest.id.CarCategoryMappingId
 import org.springframework.stereotype.Repository
 

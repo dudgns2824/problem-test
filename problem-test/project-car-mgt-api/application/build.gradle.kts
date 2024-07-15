@@ -10,6 +10,9 @@ dependencies {
     implementation(project(":project-car-mgt-api:domain"))
     implementation(project(":commons:core"))
 
+    testImplementation(libs.bundles.test.junit)
+    testImplementation(libs.bundles.test.kotest)
+
     implementation(libs.bundles.project.car.mgt.application)
 }
 
