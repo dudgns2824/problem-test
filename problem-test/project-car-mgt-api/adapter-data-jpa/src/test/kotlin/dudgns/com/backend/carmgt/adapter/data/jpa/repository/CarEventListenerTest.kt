@@ -30,7 +30,7 @@ class CarEventListenerTest(
                 rentalYn = false,
             )
 
-        val isSuccess = carEventListener.registCarInfo(dto)
+        carEventListener.registCarInfo(dto)
 
         val data =
             carEventListener.getCarInfo(
