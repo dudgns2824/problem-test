@@ -9,6 +9,8 @@ plugins {
 dependencies {
     implementation(project(":project-car-mgt-api:domain"))
     implementation(project(":commons:core"))
+
+    implementation(libs.bundles.project.car.mgt.application)
 }
 
 allOpen {

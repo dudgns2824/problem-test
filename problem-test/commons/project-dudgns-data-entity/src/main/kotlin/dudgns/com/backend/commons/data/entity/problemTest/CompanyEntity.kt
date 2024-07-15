@@ -10,7 +10,7 @@ import jakarta.persistence.Table
 class CompanyEntity {
     @Id
     @Column(name = "company_code")
-    var companyCode: Int? = null
+    var companyCode: Long? = null
 
     @Column(name = "company_name")
     var companyName: String? = null

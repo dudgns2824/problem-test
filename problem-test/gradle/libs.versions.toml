@@ -81,14 +81,14 @@ project-car-mgt-adapter-data-jpa = ["spring-boot-starter-data-jpa", "db-mysql-jp
     "jackson-datatype-jdk8", "jackson-datatype-jsr310", "jackson-module-kotlin", "jackson-core", "jackson-databind", ]
 project-car-mgt-adapter-data-jpa-kapt = ["spring-boot-configuration-processor"]
 project-car-mgt-adapter-data-jpa-test = ["flyway-core", "flyway-mysql"]
-project-car-mgt-application = []
+project-car-mgt-application = ["spring-boot-starter-web"]
 project-car-mgt-application-test = []
 project-car-mgt-bootstrap = ["spring-boot-starter-web"]
 project-car-mgt-connector = ["spring-boot-starter-web", "spring-boot-starter-validation", "jakarta-validation-api",
     "springdoc-openapi-starter-webmvc-ui", "spring-tx", "kotlinx-coroutines-reactor", "jackson-datatype-jdk8",
     "jackson-datatype-jsr310", "jackson-module-kotlin", "jackson-core", "jackson-databind", "mapstruct"]
 project-car-mgt-connector-kapt = ["mapstruct-processor"]
-project-car-mgt-connector-test = ["spring-boot-starter-webflux", "mock-server-netty", "mock-server-client-java", ]
+project-car-mgt-connector-test = ["spring-boot-starter-web", "spring-boot-starter-webflux", "mock-server-netty", "mock-server-client-java", "db-mysql-jpa", "spring-boot-starter-data-jpa"]
 project-car-mgt-admin = []
 
 

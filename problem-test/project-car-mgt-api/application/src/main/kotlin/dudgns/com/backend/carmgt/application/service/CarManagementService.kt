@@ -10,12 +10,12 @@ import dudgns.com.backend.carmgt.application.servicebus.carManagement.out.ICarMa
 import dudgns.com.backend.carmgt.application.servicebus.carManagement.out.ICarManagementQueryEventBus
 import dudgns.com.backend.carmgt.domain.common.message.ResultMessage
 import dudgns.com.backend.carmgt.domain.model.carManagement.CarInfoModel
-import dudgns.com.backend.commons.core.annotation.UseCase
+import org.springframework.stereotype.Service
 
-@UseCase
+@Service
 class CarManagementService(
     private val carManagementQueryEventBus: ICarManagementQueryEventBus,
-    private val carManagementCommandEventBus: ICarManagementCommandEventBus
+    private val carManagementCommandEventBus: ICarManagementCommandEventBus,
 ) : ICarManagementQueryBus,
     ICarManagementCommandBus,
     ICarManagementServiceBus {
